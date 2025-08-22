@@ -1,1 +1,1 @@
-Sitemap: https://iwahibari.quarto.pub/cacical/sitemap.xml
+Sitemap: https://cacical.jp/sitemap.xml
