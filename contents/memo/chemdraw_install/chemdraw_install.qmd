@@ -1,0 +1,45 @@
+---
+title: '機関契約[chemdraw]{.monofont}のインストール・アクティベーションの方法'
+description:  '大学や機関が契約したchemdrawを自PCにインストールし、アクティベーションする。'
+date: 2025-8-24
+date-modified: 2025-8-24
+categories:
+  - 備忘録 
+  - chemdraw
+---
+
+アクティベーション方法が非常に分かりづらかったのでまとめました。
+
+### 1. ChemDraw Subscription Gallery を開く
+
+[https://connect.revvitysignals.com/sitesubscription/Gallery.aspx](https://connect.revvitysignals.com/sitesubscription/Gallery.aspx)
+
+上のURLでChemDraw Subscription Galleryを開き、"Search for Institution" に所属機関の名前を英語で入力します。
+
+検索すると所属機関の名前とともに、**Register**ボタンが表示されるので、押してください。
+
+### 2. ユーザー登録をする
+
+既にユーザー登録をしてあれば、**Click here to Login**をクリックしてログインをします。  
+新規ユーザーの場合はFirst nameから項目を埋めていきます。
+
+![](./fig/chemdraw_registration.png){fig-alt="ユーザー登録画面" fig-align="center" width=80%}
+
+各項目の入力は日本語でも大丈夫です。  
+**Zip/Postal Code**には郵便番号を記入します。記入する住所は所属機関で問題ないです。  
+**State**は**Not US or Canada**を選択します。
+
+入力が完了して送信すると、登録したメールアドレスにメールが届きます。  
+**VERIFY YOUR EMAIL**を選択してください。
+
+### 3. ログインしてアクティべーションコードを入手する
+
+ログイン画面からログインします。  
+**product activation**に載っている文字列がアクティベーションコードです。  
+この文字列を使ってアクティベーションを行います。
+
+![](./fig/chemdraw_activation.png){fig-alt="ログイン後画面" fig-align="center" width=100%}
+
+### 3. アプリをダウンロードしてアクティベーション
+
+ダウンロード・インストールを行うとアクティベーションコードの入力を求められるので、先ほどのアクティベーションコードを入力します。

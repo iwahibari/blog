@@ -1,0 +1,110 @@
+/*-- scss:defaults --*/
+$primary: #0e6c45;
+$secondary: #256db0;
+$body-bg: #ffffff;
+$font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+
+// ナビゲーションバー
+$body-color: #1a1a1a;
+$navbar-bg: $body-bg;
+$navbar-fg: #1a1a1a;
+
+// コードブロック
+$code-block-bg: #2c2c2c;
+$monofont:  'Ubuntu Mono', monospace;
+
+// その他の設定
+
+@import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.titlefont{
+  font-family: 'Monomaniac One', sans-serif;
+}
+
+.monofont {
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+
+// category
+.quarto-category{
+  color: rgb(255, 255, 255);
+  background-color: $primary;
+  text-transform: none !important;
+  border-width: 0px !important;
+  border-radius: .7rem !important;
+}
+
+.quarto-category a {
+  font-weight: bold;
+}
+
+.listing-category{
+  color: rgb(255, 255, 255) !important;
+  background-color: $primary;
+  text-transform: none !important;
+  border-width: 0px !important;
+  border-radius: .7rem !important;
+  opacity: .6 !important;
+}
+
+// listing title
+.listing-title {
+  margin-bottom: 10px !important;
+}
+
+.bg-green-container {
+  background-color: rgb(137, 158, 148, .1); 
+  padding-top: 1rem; 
+  padding-bottom: .5rem;
+  margin-bottom: .5rem;
+}
+
+.bg-green-container h1,
+.bg-green-container h2,
+.bg-green-container h3 {
+  color: rgb(59, 59, 59);
+}
+
+.content-container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.speechBubble {
+  position: relative;
+  display: inline-block;
+  margin-left: 29px;
+  padding: 12px 20px;
+  border: 5px solid #707070;
+  border-radius: 25px;
+  background-color: #ffffff;
+  text-align: left;
+  color: #3d3d3d;
+  line-height: 1.5;
+}
+
+.speechBubble::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 0;
+  border-style: solid;
+  border-width: 20px 29px 20px 0;
+  border-color: transparent #707070 transparent transparent;
+  translate: -100% -50%;
+}
+
+.speechBubble::after {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 0;
+  border-style: solid;
+  border-width: 13.9px 20.2px 13.9px 0;
+  border-color: transparent #ffffff transparent transparent;
+  translate: -100% -50%;
+}

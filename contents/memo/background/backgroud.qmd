@@ -1,0 +1,105 @@
+---
+title: '[ggplot2]{.monofont}グラフの背景透過'
+description:  '[ggplot2]{.monofont}で作成したグラフの背景を、`theme`をいじることで透過させます。'
+date: 2025-8-12
+date-modified: 2025-8-12
+categories:
+  - 備忘録 
+  - R
+  - ggplot2
+---
+
+例として、次のグラフを考えます。
+
+```{r}
+#| output: false
+#| echo: false
+library(tidyverse)
+```
+
+::::{.columns}
+:::{.column width=65%}
+**コード**
+```{r}
+#| eval: false
+
+library(tidyverse)
+
+plot <- ggplot(Indometh, aes(x=time, y=conc, )) +
+    geom_line(aes(color=Subject), linewidth=1) +
+    geom_point(aes(color=Subject),size=1.5) +
+    theme_bw() +
+    theme(legend.position = "none")
+print(plot)
+
+```
+:::
+
+:::{.column width=2%}
+:::
+
+:::{.column width=33%}
+**実行結果**
+```{r}
+#| fig-width: 3
+#| fig-height: 3
+#| echo: false
+data <- Indometh
+plot <- ggplot(data, aes(x=time, y=conc, )) +
+    geom_line(aes(color=Subject), linewidth=1) +
+    geom_point(aes(color=Subject),size=1.5) +
+    theme_bw() +
+    theme(legend.position = "none")
+
+print(plot)
+```
+:::
+::::
+
+ここで作成した`ggplot2`のグラフの背景を透過させるためには、`theme()`内で、`panel.background`と`plot.background`の背景を透過させます。  
+具体的には、次のようにします。
+
+```{r}
+plot <- plot +
+    theme(
+        panel.background = element_rect(fill = "transparent", color = NA),
+        plot.background = element_rect(fill = "transparent", color = NA)
+    )
+```
+
+その結果、次のように、グラフの背景が透過されます。
+
+::: {.bg-green-container}
+::: {.content-container}
+:::{.columns}
+:::{.column width=49%}
+背景透過前  
+![](lineplot.png){width=250}
+:::
+:::{.column width=2%}
+:::
+:::{.column width=49%}
+**背景透過後**  
+![](transparent.png){width=250}
+:::
+:::
+:::
+:::
+
+実用的には、背景透過のテーマを作っておいて、それを指定するのが便利です。
+```{R filename="mytheme.R"}
+#| eval: false
+transparent_theme <- theme(
+    panel.background = element_rect(fill = "transparent", color = NA),
+    plot.background = element_rect(fill = "transparent", color = NA)
+)
+```
+
+```{r filename='plot.R'}
+#| eval: false
+# 作ったテーマが入っているファイルを読み込んで
+source('./mytheme.R')
+# plotに足す
+plot <- plot +
+    transparent_theme
+```

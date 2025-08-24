@@ -1,0 +1,10 @@
+---
+pagetitle: society
+format: html
+listing:
+  contents: society
+  type: grid
+  grid-columns: 3
+---
+
+# Society

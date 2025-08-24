@@ -1,0 +1,298 @@
+---
+title: '[ggplot2]{.monofont}テーマの自作'
+description:  'ggplot2で作成するグラフのテーマを自作する。（執筆途中）'
+date: 2025-8-10
+date-modified: 2025-8-10
+categories:
+  - 備忘録 
+  - R
+  - ggplot2
+---
+
+今回は、この棒グラフのテーマを変更していきます。
+
+```{r}
+#| output: false
+#| echo: false
+library(tidyverse)
+library(ggsignif)
+
+chickwts_sum_data <- chickwts %>%
+  group_by(feed) %>%
+  summarize(mean=mean(weight), sd=sd(weight))
+bar_plot <- ggplot(chickwts_sum_data, aes(x=feed, y=mean, fill=mean)) +
+  geom_bar(stat='identity') +
+  geom_errorbar(aes(ymin = mean - sd, ymax = mean + sd), width = 0.15, linewidth = 0.4) +
+  labs(
+    title = '飼料種別ニワトリ体重',  # タイトル
+    x = 'ニワトリ飼料',               # x軸タイトル
+    y = '平均体重'                 # y軸タイトル
+  )
+```
+
+```{r}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+print(bar_plot)
+```
+
+### デフォルトで用意されたテーマ
+
+[ggplot2]{.monofont}では既に`theme_gray()`, `theme_bw()`, `theme_linedraw()`, `theme_light()`, `theme_dark()`, `theme_minimal`, `theme_classic()`, `theme_void()`, `theme_test()`の９つのテーマが用意されており、デフォルトでは``theme_bw()`が適用されています。
+
+> [ggplot2 Complete Themes](https://ggplot2.tidyverse.org/reference/ggtheme.html)
+
+
+::: {layout-ncol="3"}
+
+### `theme_gray`
+```{r}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+bar_plot_gray <- bar_plot + theme_gray()
+print(bar_plot_gray)
+```
+
+### `theme_bw`
+```{r}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+bar_plot_bw <- bar_plot + theme_bw()
+print(bar_plot_bw)
+```
+
+### `theme_linedraw`
+```{r}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+bar_plot_linedraw <- bar_plot + theme_linedraw()
+print(bar_plot_linedraw)
+```
+
+### `theme_light`
+```{r}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+bar_plot_light <- bar_plot + theme_light()
+print(bar_plot_light)
+```
+
+### `theme_dark`
+```{R}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+bar_plot_dark <- bar_plot + theme_dark()
+print(bar_plot_dark)
+```
+
+### `theme_minimal`
+```{R}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+bar_plot_minimal <- bar_plot + theme_minimal()
+print(bar_plot_minimal)
+```
+
+### `theme_classic`
+```{R}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+bar_plot_classic<- bar_plot + theme_classic()
+print(bar_plot_classic)
+```
+
+### `theme_void`
+```{R}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+bar_plot_void <- bar_plot + theme_void()
+print(bar_plot_void)
+```
+
+### `theme_test`
+```{R}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+bar_plot_test <- bar_plot + theme_test()
+print(bar_plot_test)
+```
+:::
+
+### テーマの自作
+
+自作のテーマを作るには、適当な変数に指定したいテーマの要素を書き込むだけです。具体的には下のように、`theme()`を書き込みます。作成したテーマはデフォルトのテーマと同じように使うことができます。  
+あるテーマに別のテーマを重ねることもできます。
+
+```R
+theme_costom <- theme(
+  # ここに指定しい要素を書き込んでいきます。
+  # axis.line = ...
+)
+
+# いつも通り指定することで適用できます。
+plot <- plot + theme_costom # これでplotにカスタムテーマが適用される。
+```
+#### きまり
+設定するそれぞれの要素には、`element_blank()`か`element_text()`か、`element_line()`か、`element_rect()`のいずれかを指定します。その要素をなくしたい場合（何も表示したくない場合）は`element_blank()`を指定します。
+
+|       |         |       |           |
+| --- | ----- | ---- | ------------- | 
+| 削除 | `element_blank()` |      |      |
+| テキスト | `element_text()`  | ・`family`<br>・`face`<br>・`colour`<br>・`size`<br>・`lineheight`<br>・`hjust`<br>・`vjust`<br>・`angle`<br>・`margin`<br>・`debug` | フォント<br>書体（`plain`, `italic`, `bold`, `bold.italic`）<br>文字色<br>文字サイズ<br>行の高さ<br>水平方向の位置（0: 左揃え, 0.5: 中央揃え, 1: 右揃え）<br>垂直方向の位置（0: 下揃え, 0.5: 中央揃え, 1: 上揃え）<br>文字角度<br>マージン<br>デバッグ | 
+| 線       | `element_line()`  | ・`color`<br>・`linewidth`<br>・`linetype`<br>・`lineend` |線の色<br>線の幅<br>線のスタイル（0から6で指定）<br>線末端のスタイル（`round`, `butt`, `square`） | 
+| 四角形   | `element_rect()`  | ・`fill`<br>・`color`<br>・`linewidth`<br>・`linetype` | 塗りつぶし色<br>枠線の色<br>枠線の幅<br>枠線のスタイル | 
+: {.striped}
+
+#### 指定する要素
+
+非常に長くなり見づらいですが、`theme`の中には以下のような要素を設定することができます。
+
+```r
+theme(
+  title,                  # タイトル
+  aspect.ratio,           # 縦横比（1:正方形, 0.5:横:縦=2:1の長方形）
+  axis.title,             # 軸タイトル
+  axis.title.x,           # x軸タイトル
+  axis.title.x.top,
+  axis.title.x.bottom,
+  axis.title.y,           # y軸タイトル
+  axis.title.y.left,
+  axis.title.y.right,
+  axis.text,              # 目盛りのテキスト
+  axis.text.x,
+  axis.text.x.top,
+  axis.text.x.bottom,
+  axis.text.y,
+  axis.text.y.left,
+  axis.text.y.right,
+  axis.text.theta,
+  axis.text.r,
+  axis.ticks,             # 目盛り
+  axis.ticks.x,
+  axis.ticks.x.top,
+  axis.ticks.x.bottom,
+  axis.ticks.y,
+  axis.ticks.y.left,
+  axis.ticks.y.right,
+  axis.ticks.theta,
+  axis.ticks.r,
+  axis.minor.ticks.x.top, 
+  axis.minor.ticks.x.bottom,
+  axis.minor.ticks.y.left,
+  axis.minor.ticks.y.right,
+  axis.minor.ticks.theta,
+  axis.minor.ticks.r,
+  axis.ticks.length,
+  axis.ticks.length.x,
+  axis.ticks.length.x.top,
+  axis.ticks.length.x.bottom,
+  axis.ticks.length.y,
+  axis.ticks.length.y.left,
+  axis.ticks.length.y.right,
+  axis.ticks.length.theta,
+  axis.ticks.length.r,
+  axis.minor.ticks.length,
+  axis.minor.ticks.length.x,
+  axis.minor.ticks.length.x.top,
+  axis.minor.ticks.length.x.bottom,
+  axis.minor.ticks.length.y,
+  axis.minor.ticks.length.y.left,
+  axis.minor.ticks.length.y.right,
+  axis.minor.ticks.length.theta,
+  axis.minor.ticks.length.r,
+  axis.line,            # 軸の線
+  axis.line.x,
+  axis.line.x.top,
+  axis.line.x.bottom,
+  axis.line.y,
+  axis.line.y.left,
+  axis.line.y.right,
+  axis.line.theta,
+  axis.line.r,
+  legend.background,     # 凡例の背景
+  legend.margin,
+  legend.spacing,
+  legend.spacing.x,
+  legend.spacing.y,
+  legend.key,
+  legend.key.size,
+  legend.key.height,
+  legend.key.width,
+  legend.key.spacing,
+  legend.key.spacing.x,
+  legend.key.spacing.y,
+  legend.frame,
+  legend.ticks,
+  legend.ticks.length,
+  legend.axis.line,
+  legend.text,
+  legend.text.position,
+  legend.title,
+  legend.title.position,
+  legend.position,
+  legend.position.inside,
+  legend.direction,
+  legend.byrow,
+  legend.justification,
+  legend.justification.top,
+  legend.justification.bottom,
+  legend.justification.left,
+  legend.justification.right,
+  legend.justification.inside,
+  legend.location,
+  legend.box,
+  legend.box.just,
+  legend.box.margin,
+  legend.box.background,
+  legend.box.spacing,
+  panel.background,
+  panel.border,
+  panel.spacing,
+  panel.spacing.x,
+  panel.spacing.y,
+  panel.grid,
+  panel.grid.major,
+  panel.grid.minor,
+  panel.grid.major.x,
+  panel.grid.major.y,
+  panel.grid.minor.x,
+  panel.grid.minor.y,
+  panel.ontop,
+  plot.background,
+  plot.title,
+  plot.title.position,
+  plot.subtitle,
+  plot.caption,
+  plot.caption.position,
+  plot.tag,
+  plot.tag.position,
+  plot.tag.location,
+  plot.margin,
+  strip.background,
+  strip.background.x,
+  strip.background.y,
+  strip.clip,
+  strip.placement,
+  strip.text,
+  strip.text.x,
+  strip.text.x.bottom,
+  strip.text.x.top,
+  strip.text.y,
+  strip.text.y.left,
+  strip.text.y.right,
+  strip.switch.pad.grid,
+  strip.switch.pad.wrap,
+  complete = FALSE,
+  validate = TRUE
+)
+```

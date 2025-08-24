@@ -1,0 +1,139 @@
+---
+title: "高齢者割合マップ"
+format: 
+  html:
+    grid: 
+      body-width: 800px
+---
+
+<span class="badge rounded-pill bg-society">環境</span>
+<span class="badge rounded-pill bg-ggplot2">ggplot2</span>
+
+**都道府県別市町村ごとの65歳以上人口割合**\
+ページ最下部に生成スクリプトを記載しています。
+
+### 北海道・東北
+
+::: {layout-ncol="4"}
+![](./img/koureika_北海道.png)
+
+![](./img/koureika_青森県.png)
+
+![](./img/koureika_岩手県.png)
+
+![](./img/koureika_宮城県.png)
+
+![](./img/koureika_秋田県.png)
+
+![](./img/koureika_山形県.png)
+
+![](./img/koureika_福島県.png)
+:::
+
+### 関東
+
+::: {layout-ncol="4"}
+![](./img/koureika_茨城県.png)
+
+![](./img/koureika_栃木県.png)
+
+![](./img/koureika_群馬県.png)
+
+![](./img/koureika_埼玉県.png)
+
+![](./img/koureika_千葉県.png)
+
+![](./img/koureika_東京都.png)
+
+![](./img/koureika_神奈川県.png)
+
+![](./img/koureika_山梨県.png)
+
+![](./img/koureika_長野県.png)
+:::
+
+### 北陸
+
+::: {layout-ncol="4"}
+![](./img/koureika_新潟県.png)
+
+![](./img/koureika_富山県.png)
+
+![](./img/koureika_石川県.png)
+
+![](./img/koureika_福井県.png)
+:::
+
+### 中部
+
+::: {layout-ncol="4"}
+![](./img/koureika_岐阜県.png)
+
+![](./img/koureika_静岡県.png)
+
+![](./img/koureika_愛知県.png)
+
+![](./img/koureika_三重県.png)
+:::
+
+### 近畿
+
+::: {layout-ncol="4"}
+![](./img/koureika_滋賀県.png)
+
+![](./img/koureika_京都府.png)
+
+![](./img/koureika_大阪府.png)
+
+![](./img/koureika_兵庫県.png)
+
+![](./img/koureika_奈良県.png)
+
+![](./img/koureika_和歌山県.png)
+:::
+
+### 中国
+
+::: {layout-ncol="4"}
+![](./img/koureika_鳥取県.png)
+
+![](./img/koureika_島根県.png)
+
+![](./img/koureika_岡山県.png)
+
+![](./img/koureika_広島県.png)
+
+![](./img/koureika_山口県.png)
+:::
+
+### 四国
+
+::: {layout-ncol="4"}
+![](./img/koureika_徳島県.png)
+
+![](./img/koureika_香川県.png)
+
+![](./img/koureika_愛媛県.png)
+
+![](./img/koureika_高知県.png)
+:::
+
+### 九州・沖縄
+
+::: {layout-ncol="4"}
+![](./img/koureika_福岡県.png)
+
+![](./img/koureika_佐賀県.png)
+
+![](./img/koureika_長崎県.png)
+
+![](./img/koureika_熊本県.png)
+
+![](./img/koureika_大分県.png)
+
+![](./img/koureika_宮崎県.png)
+
+![](./img/koureika_鹿児島県.png)
+
+![](./img/koureika_沖縄県.png)
+:::

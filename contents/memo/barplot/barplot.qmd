@@ -1,0 +1,273 @@
+---
+title: '[ggplot2]{.monofont}を用いた棒グラフの作成'
+description:  'エラーバーや有意差の有無を表示した棒グラフを作成します。検定やデータの整形も同時に行います。'
+date: 2025-8-8
+date-modified: 2025-8-10
+categories:
+  - 備忘録 
+  - R
+  - ggplot2
+---
+
+::: {.bg-green-container}
+::: {.content-container}
+
+:::::: columns
+::: {.column width="40%"}
+![](./bar_plot.png)
+:::
+
+::: {.column width="5%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="55%"}
+
+### 目標
+ggplot2を用いて左のグラフを作る。\
+
+- 棒グラフ
+- エラーバー（標準偏差）
+- 軸やラベルの編集
+- テーマの作成
+
+:::
+::::::
+
+:::
+:::
+
+---
+
+### グラフ作成の流れ
+
+1.  データの整形
+2.  棒グラフの作成
+3.  装飾
+
+------------------------------------------------------------------------
+
+### 1. データの整形
+
+#### 1-1. データの確認・ライブラリのインポート
+
+R標準のデータセット`chickwts`を使って棒グラフを作成します。\
+データセット`chickwts`は、与えた餌ごとの鶏の体重のデータで、一列目`weight`に鶏の体重、二列目`feed`に餌の種類が記載されています。
+
+```{r}
+# データセットの中身の確認
+head(chickwts)
+```
+
+まず`ggplot2`を使うために必要な`tidyverse`パッケージをインポートします。\
+`exactRankTests`パッケージは後で検定を行うときに使います。（検定を行わない場合は不要）\
+`ggsignif`パッケージは有意差をグラフ内に書き込むときに用います。（これも同様に、有意差を書き込まない場合は不要）
+
+```{r}
+#| output: false
+library(tidyverse) # ggplot2を使ってグラフを作成するのに必要
+library(exactRankTests)　# 検定を行う際に使用（実施しない場合は不要）
+library(ggsignif) # 有意差をグラフ内に書き込む際に使用
+```
+
+#### 1-2. 標準偏差データの追加
+
+データセットは測定値しか含まれていません。\
+棒グラフは平均値と標準偏差の値を用いて作成したいので、データを整形し、平均値と標準偏差をまとめた新しいデータセット`chickwts_sum_data`を作成します。\
+そのために、与えた餌`feed`ごとにグループ化して、平均`feed_mean`と標準偏差`sd`を求めます。
+
+```{r}
+chickwts_sum_data <- chickwts %>%
+  group_by(feed) %>%
+  summarize(weight_mean=mean(weight), sd=sd(weight))
+
+# 作成したデータセットの中身を確認
+head(chickwts_sum_data)
+```
+
+これでデータセットの準備は整いました。\
+次は、作成したデータセット`chickwts_sum_data`を用いてggplot2で棒グラフを作ります。
+
+------------------------------------------------------------------------
+
+### 2. 棒グラフの作成
+
+`ggplot2`でグラフを作成し、`bar_plot`という変数に書き込んでいきます。  
+まず、`ggplot(データ, aes(x=x軸に使うデータ, y=y軸に使うデータ))`を書き込みます。  
+次に`ggplot2`の棒グラフ作成関数である`geom_bar()`を使って棒グラフを作成します。`geom_bar()`内で指定している`stat`は、データの扱い方です。デフォルトだと要素数をカウントしてしまうので、今回のように棒グラフの高さがそのまま入っているデータを扱う際は`identity`を指定します。
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3
+bar_plot <- ggplot(chickwts_sum_data, aes(x=feed, y=weight_mean)) +
+  geom_bar(stat='identity')
+
+print(bar_plot)
+```
+
+------------------------------------------------------------------------
+
+### 3. 装飾
+
+#### 3-1. エラーバーを付ける
+
+`geom_errorbar`でエラーバーを付けます。`ymin`と`ymax`はそれぞれ平均から標準偏差を引いた値と足した値を使うことでエラーバーの範囲を指定できます。
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3
+
+bar_plot <- bar_plot +
+  geom_errorbar(
+    aes(ymin = weight_mean - sd, ymax = weight_mean + sd),
+    width = 0.15, # エラーバー先端の幅
+    linewidth = 0.4 # エラーバーの太さ
+    )
+
+print(bar_plot)
+```
+
+#### 3-2. 軸名を変更する
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3
+
+bar_plot <- bar_plot +
+  labs(
+    title = '飼料種別ニワトリ体重',  # タイトル
+    x = 'ニワトリ飼料',               # x軸タイトル
+    y = '平均体重',                   # y軸タイトル
+  )
+
+print(bar_plot)
+```
+
+#### 3-3. 検定で有意差を示す
+
+caseinとその他の飼料で検定を行います。\
+検定にも様々ありますが、今回はウィルコクソンの順位和検定、有意水準0.05で検定します。\
+
+::: panel-tabset
+## horsebean
+
+```{r}
+test_casein_horsebean <- wilcox.exact(
+  x = filter(chickwts, feed=='casein')[,1], 
+  y = filter(chickwts, feed=='horsebean')[,1], 
+  paired = FALSE)
+print(test_casein_horsebean)
+```
+
+## linseed
+
+```{r}
+test_casein_linseed <- wilcox.exact(
+  x = filter(chickwts, feed=='casein')[,1], 
+  y = filter(chickwts, feed=='linseed')[,1], 
+  paired = FALSE)
+print(test_casein_linseed)
+```
+
+## meatmeal
+
+```{r}
+test_casein_meatmeal <- wilcox.exact(
+  x = filter(chickwts, feed=='casein')[,1], 
+  y = filter(chickwts, feed=='meatmeal')[,1], 
+  paired = FALSE)
+print(test_casein_meatmeal)
+```
+
+## soybean
+
+```{r}
+test_casein_soybean <- wilcox.exact(
+  x = filter(chickwts, feed=='casein')[,1], 
+  y = filter(chickwts, feed=='soybean')[,1], 
+  paired = FALSE)
+print(test_casein_soybean)
+```
+
+
+## sunflower
+
+```{r}
+test_casein_sunflower <- wilcox.exact(
+  x = filter(chickwts, feed=='casein')[,1], 
+  y = filter(chickwts, feed=='sunflower')[,1], 
+  paired = FALSE)
+print(test_casein_sunflower)
+```
+:::
+
+検定の結果、p-valueが有意水準0.05以下なのは`horsebean`、`linseed`、`soybean`の3つでした。\
+したがって、`casein`からこれら３つのグラフに線を引いて、有意差を示していきます。
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3
+
+bar_plot <- bar_plot +
+  geom_signif(
+    comparisons = list(c('casein','horsebean')),
+    y_position = 400, 
+    annotation = '***',
+    vjust = 0.7,
+    tip_length = 0.05
+  ) +
+  geom_signif(
+    comparisons = list(c('casein','linseed')),
+    y_position = 440, 
+    annotation = '***',
+    vjust = 0.7,
+    tip_length = 0.05
+  ) +
+  geom_signif(
+    comparisons = list(c('casein','soybean')),
+    y_position = 480, 
+    annotation = '**',
+    vjust = 0.7,
+    tip_length = 0.05
+  )
+print(bar_plot)
+```
+
+#### 3-3. 背景・軸・目盛りをカスタムする
+
+```{r}
+#| fig-width: 3.5
+#| fig-height: 3.5
+
+bar_plot <- bar_plot +
+  theme(
+    ## テキストの設定
+    plot.title = element_text(size = 13, color="black", hjust = 0.5),
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(size = 10, color="black", angle = 45, hjust = 1),
+    axis.title.y = element_text(size = 12, color="black", hjust = 0.5),
+    axis.text.y = element_text(size = 10, color="black", hjust = 0.5),
+    axis.ticks.x = element_blank(),
+    ## 枠・目盛りの設定
+    legend.title = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_rect(color='black', fill='transparent', linewidth=0.8),
+    panel.background = element_rect(fill = "white",color = NA),
+    aspect.ratio = 1,
+  ) +
+  scale_y_continuous(limits=c(0,530), expand=c(0,0))
+print(bar_plot)
+```
+
+このように作成したプロット`bar_plot`は、`ggsave`コマンドで画像ファイルとして保存することができます。
+
+```r
+ggsave(
+  plot = bar_plot,
+  file = './bar_plot.png',
+  dpi = 300,
+  width = 3.5,
+  height = 3.5
+)
+```

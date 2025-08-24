@@ -1,0 +1,6 @@
+---
+pagetitle: "備忘録"
+format: html
+listing:
+  contents: memo
+---

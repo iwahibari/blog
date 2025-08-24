@@ -1,0 +1,126 @@
+---
+title: "**地図で探す「2025ハロウィーンイベント🎃」**"
+description: "全国のハロウィーンイベントを地図から探すことができます。"
+format:
+    dashboard: 
+        orientation: columns
+page-footer: false
+---
+
+```{r}
+#| echo: false
+#| output: false
+
+# ライブラリの読み込み
+library(leaflet)
+library(leaflet.extras)
+library(DT)
+library(crosstalk)
+library(dplyr)
+library(htmltools)
+
+# データの読み込み
+event_data <- read.csv("./r7event.csv", fileEncoding = "UTF-8", stringsAsFactors = FALSE)
+
+# 必要なデータを選択・加工
+event_data <- event_data %>% 
+    mutate(lat = as.numeric(lat),lon = as.numeric(lon)) %>%
+# 表と地図のレイアウトのための操作
+    mutate(table_title = paste0("<a href='",url,"'>",name,"</a>")) %>%
+    mutate(table_daystart = format(as.Date(daystart), "%m/%d")) %>%
+    mutate(table_dayend = format(as.Date(dayend), "%m/%d")) %>%
+    mutate(lab = as.character(paste0("<img src='",fig,"'width='300'/><br><br><h5>",name,"</h5><br><strong>日時：",table_daystart,"から",table_dayend,"まで</strong><br><strong>URL：</strong><a href='",url,"'>",url,"</a><br>",description)))
+
+order <- c("table_title", "place", "pref","table_daystart", "table_dayend", "lab","lat","lon")
+
+shared_event_data <- SharedData$new(event_data[,order], group = "event_selection")
+
+events_total <- nrow(event_data)
+events_today <- 2
+
+```
+
+# ハロウィーンイベントマップ {orientation="columns" scrolling="false"}
+
+## Column {width="40%"}
+
+### Row {height="20%"}
+```{r}
+#| content: valuebox
+#| title: "登録イベント数"
+list(
+  #icon = "trash",
+  color = "#f4d1a5ff",
+  value = events_total
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "本日のイベント数"
+list(
+  #icon = "trash",
+  color = "#babbe4ff",
+  value = 0
+)
+```
+
+::: {.card title="お問い合わせ" expandable='false'}
+お手数ですが、登録・修正・削除・お問い合わせの方はこちらまでご連絡くだされば幸いです。
+:::
+
+### Row
+
+```{r}
+#| title: ハロウィンイベント
+#c("table_title", "place", "pref","table_daystart", "table_dayend", "lab","lat","lon")
+datatable(
+  shared_event_data,
+  colnames = c("イベント名","開催場所","都道府県","開始","終了"),
+  extensions = 'Scroller',
+  escape = FALSE, 
+  rownames = FALSE,
+  options = list(
+    columnDefs = list(list(visible = FALSE, targets = c("lab",'lat','lon'))),
+    deferRender = TRUE,
+    dom = "frtiS",
+    scrollCollapse = TRUE,
+     initComplete = JS(
+        "function(settings, json) {",
+        "$(this.api().table().container()).css({'font-size': '85%'});",
+        "}")
+  ),
+  selection = 'single',
+  width = "100%"
+)
+```
+
+## Column
+
+```{r map}
+#| echo: false
+#| padding: 0px
+#| title: 🎃ハロウィンイベントマップ🎃
+lab = sprintf(
+  "<img src='./logo.png' width='20'/>
+  <br/>
+  <strong>%s</strong>
+  <br/>%s",
+  shared_event_data$name, 
+  shared_event_data$description
+) %>% lapply(htmltools::HTML)
+
+map <- leaflet(shared_event_data) %>%
+  addTiles() %>%
+  setView(lng = 139.86, lat = 35.7, zoom = 12) %>%
+  addMarkers(lng = ~lon, lat = ~lat, popup = ~lab) %>%
+  addControlGPS(
+    options = gpsOptions(
+      position = "topleft",
+      activate = TRUE, 
+      autoCenter = TRUE,
+      setView = TRUE))
+activateGPS(map)
+```
+
+# おすすめのハロウィーンイベント特集 {orientation="columns" scrolling="false"}

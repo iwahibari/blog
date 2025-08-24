@@ -1,0 +1,105 @@
+---
+pagetitle: "ホーム"
+description: '作成したグラフを生成スクリプトとともにフリーで公開しています。'
+format:
+  html:
+    toc: false
+section-divs: false
+listing:
+  type: default
+  contents: contents/memo
+  sort-ui:
+    - "date"
+    - "categories"
+  categories: true
+  image-align: left
+---
+
+```{=html}
+<style>
+    /* Google Fontsから可愛いフォントを読み込み */
+    @import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
+
+    /* アニメーションを囲むコンテナのスタイル */
+    .animation-container-for-quarto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100px; /* アニメーションの表示領域の高さ */
+        overflow: hidden;
+    }
+
+    .jumping-text-for-quarto {
+        font-family: "Monomaniac One", sans-serif;
+        display: flex;
+    }
+
+    .jumping-text-for-quarto span {
+        display: inline-block;
+        font-size: 3rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        animation-name: jump-for-quarto;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        transform-origin: bottom center;
+    }
+    
+    .jumping-text-for-quarto span:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    .jumping-text-for-quarto span:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+    .jumping-text-for-quarto span:nth-child(4) {
+        animation-delay: 0.6s;
+    }
+    .jumping-text-for-quarto span:nth-child(5) {
+        animation-delay: 0.8s;
+    }
+
+    @keyframes jump-for-quarto {
+        0%, 6%, 100% {
+            transform: translateY(0) scale(1, 1);
+        }
+        1% {
+            transform: scale(1.1, 0.9);
+            animation-timing-function: ease-in;
+        }
+        3% {
+            transform: translateY(-80px) scale(0.9, 1.1);
+            animation-timing-function: ease-out;
+        }
+        5% {
+            transform: translateY(0) scale(1.1, 0.9);
+        }
+    }
+
+    .center-container-for-quarto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+</style>
+
+<div class="animation-container-for-quarto">
+    <div class="jumping-text-for-quarto">
+        <!-- <span>ゴ</span>
+        <span>リ</span>
+        <span>に</span>
+        <span>っ</span>
+        <span>き</span> -->
+        <span>カ</span>
+        <span>シ</span>
+        <span>カ</span>
+        <span>ル</span>
+    </div>
+</div>
+<div class="center-container-for-quarto">
+    <p>Rやggplot2に関する備忘録と作成したグラフ置き場です</p>
+</div>
+```
+
+::: {.column-margin}
+[![](./fig/r7halloween_catch.png)](./contents/society/r7halloween/r7halloween.qmd)
+:::

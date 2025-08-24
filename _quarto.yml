@@ -1,0 +1,75 @@
+project:
+  type: website
+  output-dir: docs
+  preview: 
+    browser: true
+
+website:
+  
+  title: "カシカル"
+  description: '作成したグラフを生成スクリプトとともにフリーで公開しています。'
+  favicon:  './fig/logo.png'
+
+  site-url: 'https://cacical.jp'
+  site-path: '/'
+
+  navbar:
+    #logo: './fig/cacical_logo.png'
+    #logo-alt: 'logo.'
+    title: '[カシカル]{.titlefont}'
+    collapse-below: lg
+    left:
+      # - text: 'サイエンス'
+      #   href: ./list/list_science.qmd
+
+      # - text: 'ソーシャル'
+      #   href: ./list/list_society.qmd
+
+      # - text: '環境'
+      #   href: ./list/list_environment.qmd
+      
+      - text: 'ノート (備忘録)'
+        href: ./contents/list_memo.qmd
+
+      - text: 'About'
+        href: about.qmd
+
+    tools:
+      - icon: github
+        href: https://github.com/iwahibari
+
+
+  announcement: 
+    icon: info-circle
+    dismissable: true
+    content: "**Info**  2025 8/22 公開しました v.1.0"
+    type: info
+    position: below-navbar
+
+  back-to-top-navigation: true
+  #bread-crumbs: true
+
+  # page-footer: 
+  #   left: "Copyright 2025, iwahibari" 
+  #   right: 
+  #     - icon: github
+  #       href: https://github.com/iwahibari
+  #     - icon: twitter 
+  #       href: https://twitter.com/ 
+
+
+format:
+  html:
+    grid:
+      body-width: 900px
+    include-in-header: gtm_code_head.html
+    theme: 
+      light: [default, ./style/costom-light.scss]
+      dark: [default, ./style/costom-dark.scss]
+    toc: true
+    toc-depth: 5
+    toc-expand: true
+    highlight-style: arrow-dark
+  
+    
+lang: ja
