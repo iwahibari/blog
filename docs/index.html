@@ -45,9 +45,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-24af4ef67af42cf7ad8d3efd5a4d3ca5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-967f081fbb546df2d7707ab437a6fdde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-97063feb5adeb3190f237213b90ce039.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-24af4ef67af42cf7ad8d3efd5a4d3ca5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-967f081fbb546df2d7707ab437a6fdde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -85,9 +85,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -349,8 +349,8 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">分類</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">すべて <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Z2dwbG90Mg==">ggplot2 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy">備忘録 <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
@@ -460,6 +460,9 @@ window.Quarto = {
       <option value="listing-date-sort" data-direction="desc">
         日付 - 日付（降順）
       </option>
+      <option value="listing-categories" data-direction="asc">
+        分類
+      </option>
     </select>
   </div>
 </div>
@@ -474,6 +477,15 @@ window.Quarto = {
 <h3 class="no-anchor listing-title">
 <a href="./contents/memo/barplot/barplot.html" class="no-external"><span class="monofont">ggplot2</span>を用いた棒グラフの作成</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy'); return false;">備忘録</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+</div>
 <div class="delink listing-description"><a href="./contents/memo/barplot/barplot.html" class="no-external">
 <p>エラーバーや有意差の有無を表示した棒グラフを作成します。検定やデータの整形も同時に行います。</p>
 </a></div>
@@ -496,6 +508,15 @@ window.Quarto = {
 <h3 class="no-anchor listing-title">
 <a href="./contents/memo/background/backgroud.html" class="no-external"><span class="monofont">ggplot2</span>グラフの背景透過</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy'); return false;">備忘録</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+</div>
 <div class="delink listing-description"><a href="./contents/memo/background/backgroud.html" class="no-external">
 <p><span class="monofont">ggplot2</span>で作成したグラフの背景を、<code>theme</code>をいじることで透過させます。</p>
 </a></div>
@@ -518,6 +539,15 @@ window.Quarto = {
 <h3 class="no-anchor listing-title">
 <a href="./contents/memo/theme_costom/theme_costom.html" class="no-external"><span class="monofont">ggplot2</span>テーマの自作</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy'); return false;">備忘録</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+</div>
 <div class="delink listing-description"><a href="./contents/memo/theme_costom/theme_costom.html" class="no-external">
 <p>ggplot2で作成するグラフのテーマを自作する。（執筆途中）</p>
 </a></div>

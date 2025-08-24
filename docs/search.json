@@ -81,6 +81,6 @@
     "href": "index.html",
     "title": "カシカル",
     "section": "",
-    "text": "カ\n        シ\n        カ\n        ル\n    \n\n\n    Rやggplot2に関する備忘録と作成したグラフ置き場です\n\n\n\n\n\n\n\n\n\n\n   \n    \n    \n      並び替え\n      デフォルト\n      \n        日付 - 日付（昇順）\n      \n      \n        日付 - 日付（降順）\n      \n    \n  \n\n\n\n\n\n\n\n\n\n\nggplot2を用いた棒グラフの作成\n\n\nエラーバーや有意差の有無を表示した棒グラフを作成します。検定やデータの整形も同時に行います。\n\n\n\n\n\n2025/08/08\n\n\n\n\n\n\n\n\n\n\n\n\nggplot2グラフの背景透過\n\n\nggplot2で作成したグラフの背景を、themeをいじることで透過させます。\n\n\n\n\n\n2025/08/12\n\n\n\n\n\n\n\n\n\n\n\n\nggplot2テーマの自作\n\n\nggplot2で作成するグラフのテーマを自作する。（執筆途中）\n\n\n\n\n\n2025/08/10\n\n\n\n\n\n一致なし\n トップに戻る"
+    "text": "カ\n        シ\n        カ\n        ル\n    \n\n\n    Rやggplot2に関する備忘録と作成したグラフ置き場です\n\n\n\n\n\n\n\n\n\n\n   \n    \n    \n      並び替え\n      デフォルト\n      \n        日付 - 日付（昇順）\n      \n      \n        日付 - 日付（降順）\n      \n      \n        分類\n      \n    \n  \n\n\n\n\n\n\n\n\n\n\nggplot2を用いた棒グラフの作成\n\n\n\n備忘録\n\nR\n\nggplot2\n\n\n\nエラーバーや有意差の有無を表示した棒グラフを作成します。検定やデータの整形も同時に行います。\n\n\n\n\n\n2025/08/08\n\n\n\n\n\n\n\n\n\n\n\n\nggplot2グラフの背景透過\n\n\n\n備忘録\n\nR\n\nggplot2\n\n\n\nggplot2で作成したグラフの背景を、themeをいじることで透過させます。\n\n\n\n\n\n2025/08/12\n\n\n\n\n\n\n\n\n\n\n\n\nggplot2テーマの自作\n\n\n\n備忘録\n\nR\n\nggplot2\n\n\n\nggplot2で作成するグラフのテーマを自作する。（執筆途中）\n\n\n\n\n\n2025/08/10\n\n\n\n\n\n一致なし\n トップに戻る"
   }
 ]
