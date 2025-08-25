@@ -1,5 +1,6 @@
 ---
 title: '[ggplot2]{.monofont}グラフの背景透過'
+pagetitle: '[ggplot2]{.monofont}グラフの背景透過'
 description:  '[ggplot2]{.monofont}で作成したグラフの背景を、`theme`をいじることで透過させます。'
 date: 2025-8-12
 date-modified: 2025-8-12

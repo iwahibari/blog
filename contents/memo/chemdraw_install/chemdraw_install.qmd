@@ -1,5 +1,6 @@
 ---
 title: '機関契約[chemdraw]{.monofont}のインストール・アクティベーションの方法'
+pagetitle: '機関契約[chemdraw]{.monofont}のインストール・アクティベーションの方法'
 description:  '大学や機関が契約したchemdrawを自PCにインストールし、アクティベーションする。'
 date: 2025-8-24
 date-modified: 2025-8-24

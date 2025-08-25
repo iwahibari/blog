@@ -6,7 +6,7 @@ project:
 
 website:
   
-  title: "カシカル"
+  title: "Cacical 「カシカル」"
   description: '作成したグラフを生成スクリプトとともにフリーで公開しています。'
   favicon:  './fig/logo.png'
 

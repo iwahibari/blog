@@ -1,5 +1,6 @@
 ---
 title: '[ggplot2]{.monofont}テーマの自作'
+pagetitle: '[ggplot2]{.monofont}テーマの自作'
 description:  'ggplot2で作成するグラフのテーマを自作する。（執筆途中）'
 date: 2025-8-10
 date-modified: 2025-8-10

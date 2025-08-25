@@ -1,5 +1,6 @@
 ---
 title: '[ggplot2]{.monofont}を用いた棒グラフの作成'
+pagetitle: '[ggplot2]{.monofont}を用いた棒グラフの作成'
 description:  'エラーバーや有意差の有無を表示した棒グラフを作成します。検定やデータの整形も同時に行います。'
 date: 2025-8-8
 date-modified: 2025-8-10
