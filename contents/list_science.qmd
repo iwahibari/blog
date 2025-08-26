@@ -1,8 +1,14 @@
 ---
-pagetitle: "科学"
+title: "science -サイエンス（科学）-"
+pagetitle: "science -サイエンス（科学）-"
+description: "サイエンス（科学）に関するグラフです。スクリプト付きで、完全フリーで公開しています。"
 format: html
 listing:
+  type: default
   contents: science
-  type: grid
-  grid-columns: 3
+  sort-ui:
+    - "date"
+    - "categories"
+  categories: true
+  image-align: left
 ---

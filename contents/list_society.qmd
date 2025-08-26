@@ -1,10 +1,14 @@
 ---
-pagetitle: society
+title: "society -社会-"
+pagetitle: "society -社会-"
+description: "社会に関するグラフです。スクリプト付きで、完全フリーで公開しています。"
 format: html
 listing:
+  type: default
   contents: society
-  type: grid
-  grid-columns: 3
+  sort-ui:
+    - "date"
+    - "categories"
+  categories: true
+  image-align: left
 ---
-
-# Society

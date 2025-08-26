@@ -1,7 +1,7 @@
 ---
 title: '[ggplot2]{.monofont}を用いた棒グラフの作成'
-pagetitle: '[ggplot2]{.monofont}を用いた棒グラフの作成'
-description:  'エラーバーや有意差の有無を表示した棒グラフを作成します。検定やデータの整形も同時に行います。'
+pagetitle: 'ggplot2を用いた棒グラフの作成'
+description:  'ggplot2を用いて、ゼロからエラーバーや有意差の有無を表示した棒グラフを作成します。検定やデータの整形も同時に行います。'
 date: 2025-8-8
 date-modified: 2025-8-10
 categories:
@@ -15,7 +15,7 @@ categories:
 
 :::::: columns
 ::: {.column width="40%"}
-![](./bar_plot.png)
+![](./bar_plot.png){fig-alt="本チュートリアルでの完成予想グラフ"}
 :::
 
 ::: {.column width="5%"}
@@ -100,6 +100,7 @@ head(chickwts_sum_data)
 ```{r}
 #| fig-width: 4
 #| fig-height: 3
+#| fig-alt: "ベース（基本）のグラフ"
 bar_plot <- ggplot(chickwts_sum_data, aes(x=feed, y=weight_mean)) +
   geom_bar(stat='identity')
 
@@ -117,6 +118,7 @@ print(bar_plot)
 ```{r}
 #| fig-width: 4
 #| fig-height: 3
+#| fig-alt: "エラーバーを付けたグラフ"
 
 bar_plot <- bar_plot +
   geom_errorbar(
@@ -133,6 +135,7 @@ print(bar_plot)
 ```{r}
 #| fig-width: 4
 #| fig-height: 3
+#| fig-alt: "タイトルと軸のタイトルを変更したグラフ"
 
 bar_plot <- bar_plot +
   labs(
@@ -208,6 +211,7 @@ print(test_casein_sunflower)
 ```{r}
 #| fig-width: 4
 #| fig-height: 3
+#| fig-alt: "検定結果を示したグラフ"
 
 bar_plot <- bar_plot +
   geom_signif(
@@ -239,6 +243,7 @@ print(bar_plot)
 ```{r}
 #| fig-width: 3.5
 #| fig-height: 3.5
+#| fig-alt: "背景・軸・目盛りをカスタムして、慣性したグラフ"
 
 bar_plot <- bar_plot +
   theme(

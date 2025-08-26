@@ -45,6 +45,7 @@ print(plot)
 #| fig-width: 3
 #| fig-height: 3
 #| echo: false
+#| fig-alt: ""
 data <- Indometh
 plot <- ggplot(data, aes(x=time, y=conc, )) +
     geom_line(aes(color=Subject), linewidth=1) +

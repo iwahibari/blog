@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="グラフ作成やR、ggplot2等に関する備忘録をノートとしてまとめています。">
 
-<title>備忘録 – Cacical 「カシカル」</title>
+<title>note -備忘録- – Cacical 「カシカル」</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,9 +85,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -348,14 +349,35 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">分類</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">すべて <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Y2hlbWRyYXc=">chemdraw <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3BwdHJhag==">cpptraj <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2dwbG90Mg==">ggplot2 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy">備忘録 <span class="quarto-category-count">(4)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
 
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">note -備忘録-</h1>
+</div>
 
+<div>
+  <div class="description">
+    グラフ作成やR、ggplot2等に関する備忘録をノートとしてまとめています。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 
@@ -363,8 +385,26 @@ window.Quarto = {
 
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-listing-sort" class="form-select" aria-label="並び替え" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">並び替え</option>
+      <option value="index" data-direction="asc">デフォルト</option>
+      <option value="listing-date-sort" data-direction="asc">
+        日付 - 日付（昇順）
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        日付 - 日付（降順）
+      </option>
+      <option value="listing-categories" data-direction="asc">
+        分類
+      </option>
+    </select>
+  </div>
+</div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y3BwdHJhag==" data-listing-date-sort="1756047600000" data-listing-file-modified-sort="1756119271242" data-listing-date-modified-sort="1756047600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="90">
+<div class="quarto-post image-left" data-index="0" data-categories="Y3BwdHJhag==" data-listing-date-sort="1756047600000" data-listing-file-modified-sort="1756119271242" data-listing-date-modified-sort="1756047600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="90">
 <div class="thumbnail"><a href="../contents/memo/atom_selection/atom_selection.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -374,6 +414,11 @@ window.Quarto = {
 <h3 class="no-anchor listing-title">
 <a href="../contents/memo/atom_selection/atom_selection.html" class="no-external"><span class="monofont">cpptraj</span>の原子選択（アトムマスク）を完全に理解する</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y3BwdHJhag=='); return false;">cpptraj</div>
+
+</div>
 <div class="delink listing-description"><a href="../contents/memo/atom_selection/atom_selection.html" class="no-external">
 <p>cpptrajのアトムマスク選択構文を理解し、思い通りに使えるようにします。</p>
 </a></div>
@@ -386,18 +431,27 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIyJTJDUiUyQ2dncGxvdDI=" data-listing-date-sort="1754578800000" data-listing-file-modified-sort="1756086015469" data-listing-date-modified-sort="1754751600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="550">
+<div class="quarto-post image-left" data-index="1" data-categories="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIyJTJDUiUyQ2dncGxvdDI=" data-listing-date-sort="1754578800000" data-listing-file-modified-sort="1756219292568" data-listing-date-modified-sort="1754751600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="560">
 <div class="thumbnail"><a href="../contents/memo/barplot/barplot.html" class="no-external">
 
-<p class="card-img-top"><img src="memo/barplot/bar_plot.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="memo/barplot/bar_plot.png" alt="本チュートリアルでの完成予想グラフ"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../contents/memo/barplot/barplot.html" class="no-external"><span class="monofont">ggplot2</span>を用いた棒グラフの作成</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy'); return false;">備忘録</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+</div>
 <div class="delink listing-description"><a href="../contents/memo/barplot/barplot.html" class="no-external">
-<p>エラーバーや有意差の有無を表示した棒グラフを作成します。検定やデータの整形も同時に行います。</p>
+<p>ggplot2を用いて、ゼロからエラーバーや有意差の有無を表示した棒グラフを作成します。検定やデータの整形も同時に行います。</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -408,7 +462,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIyJTJDUiUyQ2dncGxvdDI=" data-listing-date-sort="1754924400000" data-listing-file-modified-sort="1756085998130" data-listing-date-modified-sort="1754924400000" data-listing-reading-time-sort="1" data-listing-word-count-sort="164">
+<div class="quarto-post image-left" data-index="2" data-categories="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIyJTJDUiUyQ2dncGxvdDI=" data-listing-date-sort="1754924400000" data-listing-file-modified-sort="1756216980431" data-listing-date-modified-sort="1754924400000" data-listing-reading-time-sort="1" data-listing-word-count-sort="166">
 <div class="thumbnail"><a href="../contents/memo/background/backgroud.html" class="no-external">
 
 <p class="card-img-top"><img src="memo/background/backgroud_files/figure-html/unnamed-chunk-3-1.png"  class="thumbnail-image card-img"/></p>
@@ -418,6 +472,15 @@ window.Quarto = {
 <h3 class="no-anchor listing-title">
 <a href="../contents/memo/background/backgroud.html" class="no-external"><span class="monofont">ggplot2</span>グラフの背景透過</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy'); return false;">備忘録</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+</div>
 <div class="delink listing-description"><a href="../contents/memo/background/backgroud.html" class="no-external">
 <p><span class="monofont">ggplot2</span>で作成したグラフの背景を、<code>theme</code>をいじることで透過させます。</p>
 </a></div>
@@ -430,7 +493,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIyJTJDUiUyQ2dncGxvdDI=" data-listing-date-sort="1754751600000" data-listing-file-modified-sort="1756086051019" data-listing-date-modified-sort="1754751600000" data-listing-reading-time-sort="4" data-listing-word-count-sort="743">
+<div class="quarto-post image-left" data-index="3" data-categories="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIyJTJDUiUyQ2dncGxvdDI=" data-listing-date-sort="1754751600000" data-listing-file-modified-sort="1756086051019" data-listing-date-modified-sort="1754751600000" data-listing-reading-time-sort="4" data-listing-word-count-sort="743">
 <div class="thumbnail"><a href="../contents/memo/theme_costom/theme_costom.html" class="no-external">
 
 <p class="card-img-top"><img src="memo/theme_costom/theme_costom_files/figure-html/unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p>
@@ -440,6 +503,15 @@ window.Quarto = {
 <h3 class="no-anchor listing-title">
 <a href="../contents/memo/theme_costom/theme_costom.html" class="no-external"><span class="monofont">ggplot2</span>テーマの自作</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy'); return false;">備忘録</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+</div>
 <div class="delink listing-description"><a href="../contents/memo/theme_costom/theme_costom.html" class="no-external">
 <p>ggplot2で作成するグラフのテーマを自作する。（執筆途中）</p>
 </a></div>
@@ -452,7 +524,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIyJTJDY2hlbWRyYXc=" data-listing-date-sort="1755961200000" data-listing-file-modified-sort="1756086030832" data-listing-date-modified-sort="1755961200000" data-listing-reading-time-sort="1" data-listing-word-count-sort="39">
+<div class="quarto-post image-left" data-index="4" data-categories="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIyJTJDY2hlbWRyYXc=" data-listing-date-sort="1755961200000" data-listing-file-modified-sort="1756086030832" data-listing-date-modified-sort="1755961200000" data-listing-reading-time-sort="1" data-listing-word-count-sort="39">
 <div class="thumbnail"><a href="../contents/memo/chemdraw_install/chemdraw_install.html" class="no-external">
 
 <p class="card-img-top"><img src="memo/chemdraw_install/fig/chemdraw_registration.png" alt="ユーザー登録画面"  class="thumbnail-image card-img"/></p>
@@ -462,6 +534,13 @@ window.Quarto = {
 <h3 class="no-anchor listing-title">
 <a href="../contents/memo/chemdraw_install/chemdraw_install.html" class="no-external">機関契約<span class="monofont">chemdraw</span>のインストール・アクティベーションの方法</a>
 </h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy'); return false;">備忘録</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y2hlbWRyYXc='); return false;">chemdraw</div>
+
+</div>
 <div class="delink listing-description"><a href="../contents/memo/chemdraw_install/chemdraw_install.html" class="no-external">
 <p>大学や機関が契約したchemdrawを自PCにインストールし、アクティベーションする。</p>
 </a></div>

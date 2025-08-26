@@ -84,11 +84,6 @@ listing:
 
 <div class="animation-container-for-quarto">
     <div class="jumping-text-for-quarto">
-        <!-- <span>ゴ</span>
-        <span>リ</span>
-        <span>に</span>
-        <span>っ</span>
-        <span>き</span> -->
         <span>カ</span>
         <span>シ</span>
         <span>カ</span>
@@ -101,5 +96,5 @@ listing:
 ```
 
 ::: {.column-margin}
-[![](./fig/r7halloween_catch.png)](./contents/society/r7halloween/r7halloween.qmd)
+[![](./fig/r7halloween_catch.png){fig-alt="「地図でみる」ハロウィーンイベント2025"}](./contents/society/r7halloween/r7halloween.qmd)
 :::

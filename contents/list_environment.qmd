@@ -1,8 +1,14 @@
 ---
-pagetitle: "環境"
+title: "環境に関するグラフ"
+pagetitle: "環境に関するグラフ"
+description: "作成したグラフや表のうち、環境に関するものをまとめました。"
 format: html
 listing:
+  type: default
   contents: environment
-  type: grid
-  grid-columns: 3
+  sort-ui:
+    - "date"
+    - "categories"
+  categories: true
+  image-align: left
 ---
