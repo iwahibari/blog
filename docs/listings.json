@@ -1,7 +1,9 @@
 [
   {
     "listing": "/contents/list_science.html",
-    "items": []
+    "items": [
+      "/contents/science/amino_acid/amino_acid.html"
+    ]
   },
   {
     "listing": "/contents/list_memo.html",

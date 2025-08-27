@@ -6,11 +6,12 @@ format:
     toc: false
 section-divs: false
 listing:
+  id: note_articles
   type: default
   contents: contents/memo
+  max-items: 5
   sort-ui:
     - "date"
-    - "categories"
   categories: true
   image-align: left
 ---
@@ -19,6 +20,15 @@ listing:
 <style>
     /* Google Fontsから可愛いフォントを読み込み */
     @import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
+    
+    .background-container{
+        height: 200px;
+        position: relative;
+        display: flex;
+        flex-direction: column; /* 子要素を縦に並べる */
+        justify-content: center; /* 上下中央ぞろえ */
+        align-items: center; /* 左右中央ぞろえ */
+    }
 
     /* アニメーションを囲むコンテナのスタイル */
     .animation-container-for-quarto {
@@ -37,7 +47,7 @@ listing:
     .jumping-text-for-quarto span {
         display: inline-block;
         font-size: 3rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         animation-name: jump-for-quarto;
         animation-duration: 5s;
         animation-iteration-count: infinite;
@@ -68,7 +78,7 @@ listing:
         3% {
             transform: translateY(-80px) scale(0.9, 1.1);
             animation-timing-function: ease-out;
-        }
+        } 
         5% {
             transform: translateY(0) scale(1.1, 0.9);
         }
@@ -82,19 +92,32 @@ listing:
     }
 </style>
 
-<div class="animation-container-for-quarto">
-    <div class="jumping-text-for-quarto">
-        <span>カ</span>
-        <span>シ</span>
-        <span>カ</span>
-        <span>ル</span>
+<div class="background-container">
+    <div class="animation-container-for-quarto">
+        <div class="jumping-text-for-quarto">
+            <span>カ</span>
+            <span>シ</span>
+            <span>カ</span>
+            <span>ル</span>
+        </div>
     </div>
-</div>
-<div class="center-container-for-quarto">
-    <p>Rやggplot2に関する備忘録と作成したグラフ置き場です</p>
+    <div class="center-container-for-quarto">
+        <p>Rやggplot2に関する備忘録と作成したグラフ置き場です</p>
+    </div>
 </div>
 ```
 
 ::: {.column-margin}
 [![](./fig/r7halloween_catch.png){fig-alt="「地図でみる」ハロウィーンイベント2025"}](./contents/society/r7halloween/r7halloween.qmd)
 :::
+
+#### 最近の更新
+
+:::{#note_articles}
+:::
+
+```{=html}
+<center>
+    <a class="btn btn-outline-primary" href="contents/list_memo.qmd">もっと見る</a>
+</center>
+```

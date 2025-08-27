@@ -1,0 +1,21 @@
+---
+title: 'アミノ酸略号一覧表'
+pagetitle: 'アミノ酸略号一覧表'
+description:  'アミノ酸の構造式と略号の一覧表です。空欄バージョンも公開しています。教育目的であればフリーです。'
+date: 2025-8-27
+date-modified: 2025-8-27
+categories:
+  - science
+  - アミノ酸
+---
+
+::: {layout-ncol="2"}
+![](./fig/%E3%82%A2%E3%83%9F%E3%83%8E%E9%85%B8%E4%B8%80%E8%A6%A7%E8%A1%A8.png)
+<a href="./fig/アミノ酸一覧表.pdf" download="amino_acid.pdf" class="btn btn-outline-primary">PDFをダウンロード</a>
+<a href="./fig/アミノ酸一覧表.png" download="amino_acid.pdf" class="btn btn-outline-primary">PNGをダウンロード</a>
+
+![](./fig/%E3%82%A2%E3%83%9F%E3%83%8E%E9%85%B8%E4%B8%80%E8%A6%A7%E8%A1%A8_%E7%A9%BA%E6%AC%84.png)
+<a href="./fig/アミノ酸一覧表_空欄.pdf" download="amino_acid.pdf" class="btn btn-outline-primary">PDFをダウンロード</a>
+<a href="./fig/アミノ酸一覧表_空欄.png" download="amino_acid.pdf" class="btn btn-outline-primary">PNGをダウンロード</a>
+
+:::

@@ -25,7 +25,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -45,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-967f081fbb546df2d7707ab437a6fdde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-97063feb5adeb3190f237213b90ce039.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-967f081fbb546df2d7707ab437a6fdde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e83d3e3489c5415f5604a9a4babd515a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-9cbde016dfc2ab192c34ed12893ccf08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-e83d3e3489c5415f5604a9a4babd515a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -85,9 +84,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -327,11 +326,23 @@ window.Quarto = {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../contents/list_memo.html"> 
-<span class="menu-text">ノート (備忘録)</span></a>
+<span class="menu-text"><strong>ノート</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../contents/list_science.html" aria-current="page"> 
+<span class="menu-text"><strong>科学・技術</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contents/list_society.html"> 
+<span class="menu-text"><strong>社会・経済</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contents/list_environment.html"> 
+<span class="menu-text"><strong>地球環境</strong></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text"><strong>About</strong></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -351,7 +362,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">分類</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">すべて <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">分類</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">すべて <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2NpZW5jZQ==">science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUUzJTgyJUEyJUUzJTgzJTlGJUUzJTgzJThFJUU5JTg1JUI4">アミノ酸 <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -391,6 +402,12 @@ window.Quarto = {
     <select id="listing-listing-sort" class="form-select" aria-label="並び替え" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">並び替え</option>
       <option value="index" data-direction="asc">デフォルト</option>
+      <option value="listing-date-sort" data-direction="asc">
+        日付 - 日付（昇順）
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        日付 - 日付（降順）
+      </option>
       <option value="listing-categories" data-direction="asc">
         分類
       </option>
@@ -398,7 +415,35 @@ window.Quarto = {
   </div>
 </div>
 <div class="list quarto-listing-default">
+<div class="quarto-post image-left" data-index="0" data-categories="c2NpZW5jZSUyQyVFMyU4MiVBMiVFMyU4MyU5RiVFMyU4MyU4RSVFOSU4NSVCOA==" data-listing-date-sort="1756220400000" data-listing-file-modified-sort="1756285314912" data-listing-date-modified-sort="1756220400000" data-listing-reading-time-sort="1" data-listing-word-count-sort="18">
+<div class="thumbnail"><a href="../contents/science/amino_acid/amino_acid.html" class="no-external">
 
+<p class="card-img-top"><img src="science/amino_acid/fig/アミノ酸一覧表.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../contents/science/amino_acid/amino_acid.html" class="no-external">アミノ酸略号一覧表</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2NpZW5jZQ=='); return false;">science</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUUzJTgyJUEyJUUzJTgzJTlGJUUzJTgzJThFJUU5JTg1JUI4'); return false;">アミノ酸</div>
+
+</div>
+<div class="delink listing-description"><a href="../contents/science/amino_acid/amino_acid.html" class="no-external">
+<p>アミノ酸の構造式と略号の一覧表です。空欄バージョンも公開しています。教育目的であればフリーです。</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../contents/science/amino_acid/amino_acid.html" class="no-external">
+<div class="listing-date">
+2025/08/27
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">一致なし</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> トップに戻る</a></main> <!-- /main -->

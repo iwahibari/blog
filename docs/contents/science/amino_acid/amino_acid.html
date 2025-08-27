@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="ggplot2で作成したグラフの背景を、themeをいじることで透過させます。">
+<meta name="description" content="アミノ酸の構造式と略号の一覧表です。空欄バージョンも公開しています。教育目的であればフリーです。">
 
-<title>&lt;span class="monofont"&gt;ggplot2&lt;/span&gt;グラフの背景透過 – Cacical 「カシカル」</title>
+<title>アミノ酸略号一覧表 – Cacical 「カシカル」</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -344,17 +309,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="monofont">ggplot2</span>グラフの背景透過</h1>
+<h1 class="title">アミノ酸略号一覧表</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">備忘録</div>
-    <div class="quarto-category">R</div>
-    <div class="quarto-category">ggplot2</div>
+    <div class="quarto-category">science</div>
+    <div class="quarto-category">アミノ酸</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <span class="monofont">ggplot2</span>で作成したグラフの背景を、<code>theme</code>をいじることで透過させます。
+    アミノ酸の構造式と略号の一覧表です。空欄バージョンも公開しています。教育目的であればフリーです。
   </div>
 </div>
 
@@ -365,14 +329,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">公開</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025年8月12日</p>
+      <p class="date">2025年8月27日</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">更新日</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2025年8月12日</p>
+      <p class="date-modified">2025年8月27日</p>
     </div>
   </div>
     
@@ -383,82 +347,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>例として、次のグラフを考えます。</p>
-<div class="columns">
-<div class="column" style="width:65%;">
-<p><strong>コード</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(<span class="at">x=</span>time, <span class="at">y=</span>conc, )) <span class="sc">+</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>Subject), <span class="at">linewidth=</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>Subject),<span class="at">size=</span><span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plot)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><img src="./fig/アミノ酸一覧表.png" class="img-fluid"> <a href="./fig/アミノ酸一覧表.pdf" download="amino_acid.pdf" class="btn btn-outline-primary">PDFをダウンロード</a> <a href="./fig/アミノ酸一覧表.png" download="amino_acid.pdf" class="btn btn-outline-primary">PNGをダウンロード</a></p>
 </div>
-</div><div class="column" style="width:2%;">
-
-</div><div class="column" style="width:33%;">
-<p><strong>実行結果</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="backgroud_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="288"></p>
-</figure>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><img src="./fig/アミノ酸一覧表_空欄.png" class="img-fluid"> <a href="./fig/アミノ酸一覧表_空欄.pdf" download="amino_acid.pdf" class="btn btn-outline-primary">PDFをダウンロード</a> <a href="./fig/アミノ酸一覧表_空欄.png" download="amino_acid.pdf" class="btn btn-outline-primary">PNGをダウンロード</a></p>
 </div>
-</div>
-</div>
-</div>
-</div>
-<p>ここで作成した<code>ggplot2</code>のグラフの背景を透過させるためには、<code>theme()</code>内で、<code>panel.background</code>と<code>plot.background</code>の背景を透過させます。<br>
-具体的には、次のようにします。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> plot <span class="sc">+</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">color =</span> <span class="cn">NA</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>その結果、次のように、グラフの背景が透過されます。</p>
-<div class="bg-green-container">
-<div class="content-container">
-<div class="columns">
-<div class="column" style="width:49%;">
-<p>背景透過前<br>
-<img src="lineplot.png" class="img-fluid" width="250"></p>
-</div><div class="column" style="width:2%;">
-
-</div><div class="column" style="width:49%;">
-<p><strong>背景透過後</strong><br>
-<img src="transparent.png" class="img-fluid" width="250"></p>
-</div>
-</div>
-</div>
-</div>
-<p>実用的には、背景透過のテーマを作っておいて、それを指定するのが便利です。</p>
-<div class="cell">
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>mytheme.R</strong></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>transparent_theme <span class="ot">&lt;-</span> <span class="fu">theme</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">color =</span> <span class="cn">NA</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div class="cell">
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>plot.R</strong></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 作ったテーマが入っているファイルを読み込んで</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'./mytheme.R'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plotに足す</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> plot <span class="sc">+</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    transparent_theme</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 

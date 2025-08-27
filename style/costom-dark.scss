@@ -8,6 +8,10 @@ $font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sa
 $body-color: #f4f4f4;
 $navbar-bg: $body-bg;
 $navbar-fg: #f4f4f4;
+.navbar {
+  background-color: rgba(20, 20, 20, 0.4) !important;
+  backdrop-filter: blur(10px); /* オプション：すりガラス効果を追加 */
+}
 
 // コードブロック
 $code-block-bg: #2c2c2c;

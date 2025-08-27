@@ -17,21 +17,22 @@ website:
     #logo: './fig/cacical_logo.png'
     #logo-alt: 'logo.'
     title: '[カシカル]{.titlefont}'
+    pinned: true
     collapse-below: lg
     left:
-      # - text: 'サイエンス'
-      #   href: ./list/list_science.qmd
-
-      # - text: 'ソーシャル'
-      #   href: ./list/list_society.qmd
-
-      # - text: '環境'
-      #   href: ./list/list_environment.qmd
-      
-      - text: 'ノート (備忘録)'
+      - text: '**ノート**'
         href: ./contents/list_memo.qmd
+      
+      - text: '**科学・技術**'
+        href: ./contents/list_science.qmd
 
-      - text: 'About'
+      - text: '**社会・経済**'
+        href: ./contents/list_society.qmd
+
+      - text: '**地球環境**'
+        href: ./contents/list_environment.qmd
+
+      - text: '**About**'
         href: about.qmd
 
     tools:
@@ -61,7 +62,7 @@ website:
 format:
   html:
     grid:
-      body-width: 900px
+      body-width: 750px
     include-in-header: gtm_code_head.html
     theme: 
       light: [default, ./style/costom-light.scss]

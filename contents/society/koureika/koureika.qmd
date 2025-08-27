@@ -1,13 +1,13 @@
 ---
-title: "高齢者割合マップ"
-format: 
-  html:
-    grid: 
-      body-width: 800px
+title: '市町村別高齢者割合マップ'
+pagetitle: '市町村別高齢者割合マップ'
+description:  '市町村別の65歳以上人口の割合をヒートマップで示したグラフです。スクリプトも公開しています。完全フリーです。'
+date: 2025-8-27
+date-modified: 2025-8-27
+categories:
+  - society
+  - 高齢化
 ---
-
-<span class="badge rounded-pill bg-society">環境</span>
-<span class="badge rounded-pill bg-ggplot2">ggplot2</span>
 
 **都道府県別市町村ごとの65歳以上人口割合**\
 ページ最下部に生成スクリプトを記載しています。

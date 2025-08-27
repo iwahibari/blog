@@ -6,6 +6,7 @@ date: 2025-8-25
 date-modified: 2025-8-28
 categories:
   - cpptraj
+  - 備忘録 
 ---
 
 ::: {.callout-tip}
@@ -111,6 +112,16 @@ PDBファイルによってはファイル内に複数のチェーンが含ま�
 # A鎖とC鎖を選択
 ::A,C
 ```
+
+::: {layout-ncol="3"}
+
+![例として、PDBID:6bs1のDNAポリメラーゼKを用います。](./fig/6bs1_all.png){fig-alt="すべての原子が選択された状態DNAポリメラーゼK"}
+
+![`::A`<br>チェーンA](./fig/6bs1_chainA.png){fig-alt="チェーンAを選択の画像"}
+
+![`::A,C,P,D,T`<br>チェーンA,C,P,D,T](./fig/6bs1_acpdt.png){fig-alt="チェーンA,C,P,D,Tを選択した画像"}
+
+:::
 
 #### 2.4 チェーンと残基と原子を組み合わせて指定する
 
