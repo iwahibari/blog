@@ -1,7 +1,7 @@
 ---
 title: '[ggplot2]{.monofont}グラフの背景透過'
-pagetitle: '[ggplot2]{.monofont}グラフの背景透過'
-description:  '[ggplot2]{.monofont}で作成したグラフの背景を、`theme`をいじることで透過させます。'
+pagetitle: 'ggplot2グラフの背景透過'
+description:  'ggplot2で作成したグラフの背景を、`theme`をいじることで透過させます。'
 date: 2025-8-12
 date-modified: 2025-8-12
 categories:
@@ -44,8 +44,9 @@ print(plot)
 ```{r}
 #| fig-width: 3
 #| fig-height: 3
+#| fig-alt: "背景が透過していないggplotで作成したグラフ"
 #| echo: false
-#| fig-alt: ""
+
 data <- Indometh
 plot <- ggplot(data, aes(x=time, y=conc, )) +
     geom_line(aes(color=Subject), linewidth=1) +
@@ -76,13 +77,13 @@ plot <- plot +
 :::{.columns}
 :::{.column width=49%}
 背景透過前  
-![](lineplot.png){width=250}
+![](lineplot.png){width=250 fig-alt="背景透過処理を施す前のggplot2で作成したグラフ"}
 :::
 :::{.column width=2%}
 :::
 :::{.column width=49%}
 **背景透過後**  
-![](transparent.png){width=250}
+![](transparent.png){width=250　fig-alt="背景透過処理を施したggplot2で作成したグラフ"}
 :::
 :::
 :::
