@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="cpptrajのアトムマスク選択構文を理解し、思い通りに使えるようにします。">
+<meta name="description" content="AMBERのアトムマスク選択構文を理解し、思い通りに使えるようにします。cpptrajやpytrajも同様の方法を使います。">
 
-<title>cpptrajの原子選択（アトムマスク）を完全に理解する – Cacical 「カシカル」</title>
+<title>分子シミュレーションソフトAMBERの原子選択（アトムマスク）を完全に理解する – Cacical 「カシカル」</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -350,7 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="monofont">cpptraj</span>の原子選択（アトムマスク）を完全に理解する</h1>
+<h1 class="title"><span class="monofont">AMBER</span>の原子選択（アトムマスク）を完全に理解する</h1>
   <div class="quarto-categories">
     <div class="quarto-category">cpptraj</div>
   </div>
@@ -358,7 +358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    cpptrajのアトムマスク選択構文を理解し、思い通りに使えるようにします。
+    AMBERのアトムマスク選択構文を理解し、思い通りに使えるようにします。cpptrajやpytrajも同様の方法を使います。
   </div>
 </div>
 
@@ -376,7 +376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">更新日</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2025年8月25日</p>
+      <p class="date-modified">2025年8月28日</p>
     </div>
   </div>
     
@@ -411,44 +411,135 @@ Tip
 <p>残基は、<code>:</code>に続いて残基番号や残基名を指定することで選択することができます。<br>
 残基番号を指定する場合、<code>-</code>を用いることで範囲を、<code>,</code>を用いることで複数範囲を指定することができます。</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 基本構文</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>:<span class="co">[</span><span class="ot">残基番号または残基名</span><span class="co">]</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>:(残基番号または残基名)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu"># 残基番号1番を選択</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>:1</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu"># 残基番号2番を選択</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>:2</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># 残基番号1から10番までを選択</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>:1-10</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># 残基番号1から10番までと、15番を選択</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>:1-10,15</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu"># 全てのアラニンを選択</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>: ALA</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>:ALA</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu"># 全てのアラニンとリシンを選択</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>: ALA,LYS</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>:ALA,LYS</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-layout-panel" data-layout-ncol="4">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./fig/all.png" class="img-fluid figure-img" alt="すべての原子が選択された状態"></p>
+<figcaption>例として、シニョリンを用います</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./fig/res2.png" class="img-fluid figure-img" alt="残基番号2番を選択の画像"></p>
+<figcaption><code>:2</code><br>残基番号2番</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./fig/res2.5_7.png" class="img-fluid figure-img" alt="残基番号2番と5-7番を選択の画像"></p>
+<figcaption><code>:2,5-7</code><br>残基番号2番と5から7番</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./fig/gly.png" class="img-fluid figure-img" alt="グリシン残基を選択の画像"></p>
+<figcaption><code>:GLY</code><br>全てのグリシン残基</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="原子の選択" class="level4">
 <h4 class="anchored" data-anchor-id="原子の選択">2.2 原子の選択</h4>
 <p>原子は<code>@</code>に続いてファイル中の原子番号や原子要素名を指定することで選択することができます。<br>
-残基の場合と同様に<code>-</code>を用いることで範囲を、<code>,</code>を用いることで複数範囲を指定することができます。</p>
+残基の場合と同様に<code>-</code>を用いることで範囲を、<code>,</code>を用いることで複数範囲を指定することができます。<br>
+<code>@</code>に続いて<code>\</code>や<code>%</code>を記述することで、それぞれ元素名と原子タイプを指定することができます。</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+注意：元素記号と原子要素名は別
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>原子の要素名で選択する場合、必ずしも元素記号と一致しないことに注意が必要です。例えば、酸素を指定したい場合、<code>@O</code>だと全ての酸素を指定できない場合が多いです。あくまで、“O”という原子要素名がついた原子のみが選択されます。すべての酸素を選択したい場合は、原子要素名を指定する<code>@</code>ではなく、元素を指定する<code>@/</code>を使うか、<a href="#wildcard">第3章</a>で解説する<strong>ワイルドカード</strong>を使います。</p>
+</div>
+</div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 基本構文</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>@<span class="co">[</span><span class="ot">残基番号または残基名</span><span class="co">]</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu"># ファイル中の1番原子を選択</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>@1</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># 1番原子から10番原子までを選択</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>@1-10</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># 1番原子から10番原子までと、15番原子を選択</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>@1-10,15</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu"># 全てのCα原子を選択</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>@CA</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu"># 全てのCA原子と窒素Nを選択</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>@CA,N</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>原子の要素名で指定する場合、必ずしも原子記号と一致しないことに注意が必要です。例えば、水素を指定したい場合、<code>@H</code>だけだと全ての水素を指定できない場合が多いです。<code>@H1</code>や<code>@H2</code>等も存在している場合があります。すべての水素を指定した場合は<a href="#wildcard">第3章</a>で解説する<strong>ワイルドカード</strong>を用いて指定をします。</p>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>@(残基番号または残基名)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>@<span class="sc">\(</span>元素名)     </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>@%(原子タイプ名)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># ファイル中の1番原子を選択</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>@1</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># 1番原子から10番原子までを選択</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>@1-10</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu"># 1番原子から10番原子までと、15番原子を選択</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>@1-10,15</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu"># 全てのCα原子を選択</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>@CA</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu"># 全ての原子要素名"O"と"N"を選択</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>@O,N</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># 全ての酸素原子と窒素を選択</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>@\O,N</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># 全ての原子タイプCTを選択</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>@%CT</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-layout-panel" data-layout-ncol="4">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./fig/ca.png" class="img-fluid figure-img" alt="原子要素名CA(タンパク質のCα原子)を選択の画像"></p>
+<figcaption><code>@CA</code><br>原子要素名CA(タンパク質のCα原子)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./fig/o.n.png" class="img-fluid figure-img" alt="原子要素名OとNを選択の画像"></p>
+<figcaption><code>@O,N</code><br>原子要素名OとN<br>この選択だと原子要素名が”O”と”N”の原子のみが選択される。酸素原子であっても、OG1,OD1,OHなど、ほかの原子要素名は選択されない。</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./fig/res2.5_7.png" class="img-fluid figure-img" alt="すべての酸素原子と窒素原子を選択した画像"></p>
+<figcaption><code>@/O,N</code><br>酸素原子と窒素原子<br>これで全ての酸素原子と窒素原子が選択される。</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./fig/h.png" class="img-fluid figure-img" alt="水素原子を選択の画像"></p>
+<figcaption><code>@H*</code><br>全ての水素原子<br>第3章で解説するワイルドカードを用いても元素での選択ができる。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="チェーン鎖の選択" class="level4">
 <h4 class="anchored" data-anchor-id="チェーン鎖の選択">2.3 チェーン（鎖）の選択</h4>
 <p>PDBファイルによってはファイル内に複数のチェーンが含まれている場合があります。<br>
 チェーンは<code>::</code>に続いてチェーンIDを指定することで選択できます。</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 基本構文</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>::<span class="co">[</span><span class="ot">チェーンID</span><span class="co">]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>::(チェーンID)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu"># A鎖を選択</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>::A</span>
