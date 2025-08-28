@@ -43,7 +43,7 @@ website:
   announcement: 
     icon: info-circle
     dismissable: true
-    content: "**Info**  2025 8/22 公開しました v.1.0"
+    content: "**Info**  2025 8/28 AMBERのアトムマスクに関しての記事を公開しました。"
     type: info
     position: below-navbar
 
