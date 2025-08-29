@@ -21,6 +21,16 @@ listing:
     /* Google Fontsから可愛いフォントを読み込み */
     @import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
     
+    .content {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        padding-top: 0rem !important; 
+        padding-bottom: 0rem;
+        padding-left: 0rem;
+        padding-right: 0rem;
+        box-shadow: 0px 0px 0px 0 rgba(255, 255, 255, 0);
+    }
+
     .background-container{
         height: 200px;
         position: relative;
