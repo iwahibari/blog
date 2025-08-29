@@ -72,7 +72,7 @@ plot <- plot +
 
 その結果、次のように、グラフの背景が透過されます。
 
-::: {.bg-green-container}
+::: {.bg-gray-container}
 ::: {.content-container}
 :::{.columns}
 :::{.column width=49%}

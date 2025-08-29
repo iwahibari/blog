@@ -62,7 +62,7 @@ website:
 format:
   html:
     grid:
-      body-width: 750px
+      body-width: 800px
     include-in-header: gtm_code_head.html
     theme: 
       light: [default, ./style/costom-light.scss]
@@ -71,6 +71,8 @@ format:
     toc-depth: 5
     toc-expand: true
     highlight-style: arrow-dark
+    fontsize: 18px
+    linestretch: 1.8
   
     
 lang: ja

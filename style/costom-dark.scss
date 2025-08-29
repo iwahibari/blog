@@ -1,59 +1,114 @@
 /*-- scss:defaults --*/
-$primary: #16a368;
+
+@import url("https://fonts.googleapis.com/css2?family=Monomaniac+One&family=Noto+Sans+JP:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+
+$primary: #1a9b65;
 $secondary: #256db0;
-$body-bg: #222222;
-$font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+$body-bg: #131313;
+$body-color: #dddddd;
+$font-family: "Noto Sans JP", sans-serif;
+$artcle-color: rgb(38, 38, 38) !default;
 
-// ナビゲーションバー
-$body-color: #f4f4f4;
-$navbar-bg: $body-bg;
-$navbar-fg: #f4f4f4;
-.navbar {
-  background-color: rgba(20, 20, 20, 0.4) !important;
-  backdrop-filter: blur(10px); /* オプション：すりガラス効果を追加 */
-}
-
-// コードブロック
-$code-block-bg: #2c2c2c;
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
-$monofont:  'Ubuntu Mono', monospace;
-
-$code-bg: #383838;
-$code-color: #fee9fb;
-// その他の設定
-
-@import url('https://fonts.googleapis.com/css2?family=Monomaniac+One');
+// フォント設定
 .titlefont{
   font-family: 'Monomaniac One', sans-serif;
 }
-
 .monofont {
   font-family: 'Ubuntu Mono', monospace;
 }
 
-// category
-.quarto-categories {
-  overflow: hidden;
+// ナビゲーションバー
+$navbar-bg: #e7e7e7;
+$navbar-fg: $body-color;
+.navbar {
+  background-color: rgba(28, 28, 28, 0.4) !important;
+  backdrop-filter: blur(10px); /* オプション：すりガラス効果を追加 */
 }
 
+
+//tocの設定
+.toc-active {
+  background-color: $artcle-color !important;
+  border-radius: 0.5rem !important;
+  padding-top: 0.5rem; 
+  padding-bottom: 0.2rem;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  border: rgb(64, 64, 64) 0px solid !important;
+  //box-shadow: 0px 10px 10px 0px rgba(197, 197, 197, 0.5) !important;
+}
+.nav-link-active {
+  color: rgb(0,0,0) !important;
+  font-weight: bold !important;
+}
+.nav-link {
+  color: gray !important;
+}
+
+// body部分の設定
+.content {
+  background-color: $artcle-color; 
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+  padding-top: 0.5rem; 
+  padding-bottom: .5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-shadow: 0px 0px 0px 0 rgba(2, 2, 2, 0.5);
+}
+
+// コードブロック
+$code-block-bg: #474747;
+.cell-output-stdout {
+  color: #d63384;
+}
+// インラインコード
+$code-color: rgb(255, 158, 227);
+$code-bg: $code-block-bg;
+$monofont:  'Ubuntu Mono', monospace;
+
+
+// カテゴリの見た目
 .quarto-category{
-  color: white;
+  color: rgb(255, 255, 255) !important;
   background-color: $primary;
-  border-radius: 50%;
+  text-transform: none !important;
+  border-width: 0px !important;
+  border-radius: .7rem !important;
+  opacity: 1 !important;
+}
+.quarto-category a {
+  color: rgb(255, 255, 255) !important;
+  font-weight: bold;
+}
+.listing-category{
+  color: rgb(255, 255, 255) !important;
+  background-color: $primary;
+  text-transform: none !important;
+  border-width: 0px !important;
+  border-radius: .7rem !important;
+  opacity: 1 !important;
+}
+
+// リストのタイトルの余白調整
+.listing-title {
+  margin-bottom: 10px !important;
 }
 
 
-.bg-green-container {
+// その他
+.bg-gray-container {
   background-color: rgb(137, 158, 148, .1); 
   padding-top: 1rem; 
   padding-bottom: .5rem;
   margin-bottom: .5rem;
 }
 
-.bg-green-container h1,
-.bg-green-container h2,
-.bg-green-container h3 {
-  color: rgb(255, 255, 255);
+.bg-gray-container h1,
+.bg-gray-container h2,
+.bg-gray-container h3 {
+  color: rgb(215, 215, 215);
 }
 
 .content-container {
@@ -63,39 +118,3 @@ $code-color: #fee9fb;
   padding-left: 1rem;
   padding-right: 1rem;
 }
-
-.speechBubble {
-  position: relative;
-  display: inline-block;
-  margin-left: 29px;
-  padding: 12px 20px;
-  border: 5px solid #707070;
-  border-radius: 25px;
-  background-color: #ffffff;
-  text-align: left;
-  color: #3d3d3d;
-  line-height: 1.5;
-}
-
-.speechBubble::before {
-  content: "";
-  position: absolute;
-  top: 30%;
-  left: 0;
-  border-style: solid;
-  border-width: 20px 29px 20px 0;
-  border-color: transparent #707070 transparent transparent;
-  translate: -100% -50%;
-}
-
-.speechBubble::after {
-  content: "";
-  position: absolute;
-  top: 30%;
-  left: 0;
-  border-style: solid;
-  border-width: 13.9px 20.2px 13.9px 0;
-  border-color: transparent #ffffff transparent transparent;
-  translate: -100% -50%;
-}
-

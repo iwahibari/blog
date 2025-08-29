@@ -10,7 +10,7 @@ categories:
   - ggplot2
 ---
 
-::: {.bg-green-container}
+::: {.bg-gray-container}
 ::: {.content-container}
 
 :::::: columns
