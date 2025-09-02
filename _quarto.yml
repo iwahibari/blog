@@ -8,7 +8,7 @@ website:
   
   title: "Cacical 「カシカル」"
   description: '作成したグラフを生成スクリプトとともにフリーで公開しています。'
-  favicon:  './fig/logo.png'
+  favicon:  './fig/favicon.jpg'
 
   site-url: 'https://cacical.jp'
   site-path: '/'
@@ -48,6 +48,10 @@ website:
     position: below-navbar
 
   back-to-top-navigation: true
+
+  open-graph: true
+  twitter-card: true
+  cookie-consent: true
   #bread-crumbs: true
 
   # page-footer: 

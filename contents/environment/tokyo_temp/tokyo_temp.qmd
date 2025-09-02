@@ -27,9 +27,8 @@ tbl-cap-location: bottom
 | **データ取得日** | 2025-07-23 |
 | **データ元** | [気象庁　過去の気象データ・ダウンロード](https://www.data.jma.go.jp/risk/obsdl/) |
 | **使用したパッケージ** | `R`, `ggplot2`, `bash`|
-: {.hover}
 
-{{< downloadthis './temp.png' dname="tokyo_temp.png" label="画像をダウンロード" icon="download" type='dark' >}} 
+<a href="./temp.png" download="tokyo_temp.png" class="btn btn-outline-primary">PNG画像をダウンロード</a>
 
 ___
 
@@ -45,7 +44,8 @@ ___
 | **データ取得日** | 2025-07-23 |
 | **データ元** | [気象庁　過去の気象データ・ダウンロード](https://www.data.jma.go.jp/risk/obsdl/) |
 | **使用したパッケージ** | `R`, `ggplot2`, `bash`|
-: {.hover} 
+
+<a href="./temp_lineplot.png" download="tokyo_temp_line.png" class="btn btn-outline-primary">PNG画像をダウンロード</a>
 
 ---
 

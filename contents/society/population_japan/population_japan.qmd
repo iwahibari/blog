@@ -22,6 +22,7 @@ categories:
 | **データ元** | [総務省統計局｜人口推計](https://www.stat.go.jp/data/jinsui/index.htm) |
 | **使用したパッケージ** | `R`, `ggplot2`|
 
+<a href="./population_ja.png" download="population_ja.pdf" class="btn btn-outline-primary">PNGをダウンロード</a>
 
 :::
 :::
