@@ -1,20 +1,14 @@
 ---
 pagetitle: "ホーム"
 description: '作成したグラフを生成スクリプトとともにフリーで公開しています。'
-format:
-  html:
-    toc: false
-section-divs: false
-listing:
-  id: note_articles
-  type: default
-  contents: contents/memo
-  max-items: 5
-  sort-ui:
-    - "date"
-  categories: true
-  image-align: left
+hide-description: true
+page-layout: full
+toc: false
+
+
+css: style/index.css
 ---
+
 
 ```{=html}
 <style>
@@ -117,17 +111,81 @@ listing:
 </div>
 ```
 
+```{=html}
+
+<style>
+    .carousel {
+        background-color: #8491c328;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .carousel-img {
+        height: 400px;
+        object-fit: contain;*/
+    }
+</style>
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="./fig/6bs1_acpdt.png" class="d-block w-100 carousel-img" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="./fig/koureika_愛知県.png" class="d-block w-100 carousel-img" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="./fig/temp_lineplot_en.png" class="d-block w-100 carousel-img" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+```
+
+
+
+::: {.content-container}
+
+### グラフの種類から探す
+
+::: {layout-ncol="4"}
+
+![](./fig/line.png)
+
+![](./fig/bar.png)
+
+![](./fig/heat.png)
+
+![](./fig/map.png)
+
+:::
+:::
+
+
+<!-- 
 ::: {.column-margin}
 [![](./fig/r7halloween_catch.png){fig-alt="「地図でみる」ハロウィーンイベント2025"}](./contents/society/r7halloween/r7halloween.qmd)
 :::
 
-#### 最近の更新
 
-:::{#note_articles}
+::: {.light-content}
+This text will be shown in light mode.
 :::
 
-```{=html}
-<center>
-    <a class="btn btn-outline-primary" href="contents/list_memo.qmd">もっと見る</a>
-</center>
-```
+
+::: {.dark-content}
+This text will be shown in dark mode.
+:::
+
+-->

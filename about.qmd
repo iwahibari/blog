@@ -1,5 +1,22 @@
 ---
-title: 'about'
-date: 2025-8-12
-date-modified: 2025-8-12
+title: 'About'
+pagetitle: 'About'
+description:  '本サイトの更新履歴とお問い合わせ・プロフィールなど'
+date: 2025-8-31
+date-modified: 2025-8-31
 ---
+
+
+### About me
+
+### お問い合わせ・各種連絡
+
+[お問い合わせ](https://docs.google.com/forms/d/e/1FAIpQLSdeQfB2LMXHm4fhWEHxqeVqOt2XNG1Jp2Ifk3Fmfg5IvDgVlg/viewform?usp=dialog)
+
+### 更新履歴
+
+- 2025-07-20: **β版を公開**
+- 2025-08-08: **quarto-pubで公開**
+- 2025-08-10: **デザインを大幅に変更**
+- 2025-08-20: **サーバーをgithub-pagesに移行**
+- 2025-08-31: **記事ページのデザインを変更**

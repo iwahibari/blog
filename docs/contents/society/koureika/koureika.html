@@ -21,10 +21,46 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
@@ -44,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-b5fd400f383db1b366f959d98f0a047c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-75361c5ccdf8e4eecff5df40a763e582.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/bootstrap/bootstrap-dark-7075402092f3cf786f65d3ea315375df.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-b5fd400f383db1b366f959d98f0a047c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-75361c5ccdf8e4eecff5df40a763e582.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,9 +143,13 @@ cookieconsent.run({
 <meta property="og:description" content="市町村別の65歳以上人口の割合をヒートマップで示したグラフです。スクリプトも公開しています。完全フリーです。">
 <meta property="og:image" content="https://cacical.jp/contents/society/koureika/img/koureika_北海道.png">
 <meta property="og:site_name" content="Cacical 「カシカル」">
+<meta property="og:image:height" content="525">
+<meta property="og:image:width" content="525">
 <meta name="twitter:title" content="市町村別高齢者割合マップ">
 <meta name="twitter:description" content="市町村別の65歳以上人口の割合をヒートマップで示したグラフです。スクリプトも公開しています。完全フリーです。">
 <meta name="twitter:image" content="https://cacical.jp/contents/society/koureika/img/koureika_北海道.png">
+<meta name="twitter:image-height" content="525">
+<meta name="twitter:image-width" content="525">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -337,10 +377,6 @@ cookieconsent.run({
   <li><a href="#関東" id="toc-関東" class="nav-link" data-scroll-target="#関東">関東</a></li>
   <li><a href="#北陸" id="toc-北陸" class="nav-link" data-scroll-target="#北陸">北陸</a></li>
   <li><a href="#中部" id="toc-中部" class="nav-link" data-scroll-target="#中部">中部</a></li>
-  <li><a href="#近畿" id="toc-近畿" class="nav-link" data-scroll-target="#近畿">近畿</a></li>
-  <li><a href="#中国" id="toc-中国" class="nav-link" data-scroll-target="#中国">中国</a></li>
-  <li><a href="#四国" id="toc-四国" class="nav-link" data-scroll-target="#四国">四国</a></li>
-  <li><a href="#九州沖縄" id="toc-九州沖縄" class="nav-link" data-scroll-target="#九州沖縄">九州・沖縄</a></li>
   </ul>
 </nav>
     </div>
@@ -377,7 +413,7 @@ cookieconsent.run({
     <div>
     <div class="quarto-title-meta-heading">更新日</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2025年8月27日</p>
+      <p class="date-modified">2025年9月2日</p>
     </div>
   </div>
     
@@ -388,10 +424,37 @@ cookieconsent.run({
 </header>
 
 
+<div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+<div class="progress-bar" style="width: 0%">
+
+</div>
+</div>
 <p><strong>都道府県別市町村ごとの65歳以上人口割合</strong><br>
 ページ最下部に生成スクリプトを記載しています。</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><strong>作成日</strong></td>
+<td>2025-09-02</td>
+</tr>
+<tr class="even">
+<td><strong>データ取得日</strong></td>
+<td>2025-027</td>
+</tr>
+<tr class="odd">
+<td><strong>データ元</strong></td>
+<td><a href="https://www.e-stat.go.jp/stat-search/files?page=1&amp;toukei=00200521">令和二年国勢調査｜人口基本集計</a></td>
+</tr>
+<tr class="even">
+<td><strong>使用したパッケージ</strong></td>
+<td><code>R</code>, <code>ggplot2</code></td>
+</tr>
+</tbody>
+</table>
 <section id="北海道東北" class="level3">
 <h3 class="anchored" data-anchor-id="北海道東北">北海道・東北</h3>
+<div class="bg-gray-container">
+<div class="content-container">
 <div class="quarto-layout-panel" data-layout-ncol="4">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
@@ -419,9 +482,18 @@ cookieconsent.run({
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+<div class="progress-bar" style="width: 50%">
+
+</div>
+</div>
 </section>
 <section id="関東" class="level3">
 <h3 class="anchored" data-anchor-id="関東">関東</h3>
+<div class="bg-gray-container">
+<div class="content-container">
 <div class="quarto-layout-panel" data-layout-ncol="4">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
@@ -457,9 +529,13 @@ cookieconsent.run({
 </div>
 </div>
 </div>
+</div>
+</div>
 </section>
 <section id="北陸" class="level3">
 <h3 class="anchored" data-anchor-id="北陸">北陸</h3>
+<div class="bg-gray-container">
+<div class="content-container">
 <div class="quarto-layout-panel" data-layout-ncol="4">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
@@ -476,9 +552,13 @@ cookieconsent.run({
 </div>
 </div>
 </div>
+</div>
+</div>
 </section>
 <section id="中部" class="level3">
 <h3 class="anchored" data-anchor-id="中部">中部</h3>
+<div class="bg-gray-container">
+<div class="content-container">
 <div class="quarto-layout-panel" data-layout-ncol="4">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
@@ -495,9 +575,11 @@ cookieconsent.run({
 </div>
 </div>
 </div>
-</section>
+</div>
 <section id="近畿" class="level3">
 <h3 class="anchored" data-anchor-id="近畿">近畿</h3>
+<div class="bg-gray-container">
+<div class="content-container">
 <div class="quarto-layout-panel" data-layout-ncol="4">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
@@ -522,9 +604,13 @@ cookieconsent.run({
 </div>
 </div>
 </div>
+</div>
+</div>
 </section>
 <section id="中国" class="level3">
 <h3 class="anchored" data-anchor-id="中国">中国</h3>
+<div class="bg-gray-container">
+<div class="content-container">
 <div class="quarto-layout-panel" data-layout-ncol="4">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
@@ -546,9 +632,13 @@ cookieconsent.run({
 </div>
 </div>
 </div>
+</div>
+</div>
 </section>
 <section id="四国" class="level3">
 <h3 class="anchored" data-anchor-id="四国">四国</h3>
+<div class="bg-gray-container">
+<div class="content-container">
 <div class="quarto-layout-panel" data-layout-ncol="4">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
@@ -565,9 +655,13 @@ cookieconsent.run({
 </div>
 </div>
 </div>
+</div>
+</div>
 </section>
 <section id="九州沖縄" class="level3">
 <h3 class="anchored" data-anchor-id="九州沖縄">九州・沖縄</h3>
+<div class="bg-gray-container">
+<div class="content-container">
 <div class="quarto-layout-panel" data-layout-ncol="4">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
@@ -598,8 +692,90 @@ cookieconsent.run({
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+<div class="progress-bar" style="width: 100%">
+
+</div>
+</div>
+</section>
+<section id="ソースコード" class="level3">
+<h3 class="anchored" data-anchor-id="ソースコード">ソースコード</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>data_file <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">'../data'</span>, <span class="st">'major_results_2020.xlsx'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(data_file)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>geodata_file <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">'../data'</span>,<span class="st">'N03-20250101.geojson'</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>geodata <span class="ot">&lt;-</span> <span class="fu">st_read</span>(geodata_file) <span class="sc">%&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="st">'shityouson'</span> <span class="ot">=</span> <span class="st">'N03_004'</span>, <span class="st">'市町村コード'</span> <span class="ot">=</span> <span class="st">'N03_007'</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>prefdata_file <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">'../data'</span>, <span class="st">'pref_lat_lon.csv'</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>prefdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(prefdata_file) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="st">'都道府県名'</span><span class="ot">=</span><span class="st">'pref_name'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>pref_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'北海道'</span>, <span class="st">'青森県'</span>, <span class="st">'岩手県'</span>, <span class="st">'宮城県'</span>, <span class="st">'秋田県'</span>, <span class="st">'山形県'</span>, <span class="st">'福島県'</span>, <span class="st">'茨城県'</span>, <span class="st">'栃木県'</span>, <span class="st">'群馬県'</span>, <span class="st">'埼玉県'</span>, <span class="st">'千葉県'</span>, <span class="st">'東京都'</span>, <span class="st">'神奈川県'</span>, <span class="st">'山梨県'</span>, <span class="st">'長野県'</span>, <span class="st">'新潟県'</span>, <span class="st">'富山県'</span>, <span class="st">'石川県'</span>, <span class="st">'福井県'</span>, <span class="st">'岐阜県'</span>, <span class="st">'静岡県'</span>, <span class="st">'愛知県'</span>, <span class="st">'三重県'</span>, <span class="st">'滋賀県'</span>, <span class="st">'京都府'</span>, <span class="st">'大阪府'</span>, <span class="st">'兵庫県'</span>, <span class="st">'奈良県'</span>, <span class="st">'和歌山県'</span>, <span class="st">'鳥取県'</span>, <span class="st">'島根県'</span>, <span class="st">'岡山県'</span>, <span class="st">'広島県'</span>, <span class="st">'山口県'</span>, <span class="st">'徳島県'</span>, <span class="st">'香川県'</span>, <span class="st">'愛媛県'</span>, <span class="st">'高知県'</span>, <span class="st">'福岡県'</span>, <span class="st">'佐賀県'</span>, <span class="st">'長崎県'</span>, <span class="st">'熊本県'</span>, <span class="st">'大分県'</span>, <span class="st">'宮崎県'</span>, <span class="st">'鹿児島県'</span>, <span class="st">'沖縄県'</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>merge_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(geodata, data, <span class="at">by=</span><span class="st">'市町村コード'</span>, <span class="at">all.geodata=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>get_png <span class="ot">&lt;-</span> <span class="cf">function</span>(filename) {</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  grid<span class="sc">::</span><span class="fu">rasterGrob</span>(png<span class="sc">::</span><span class="fu">readPNG</span>(filename), <span class="at">interpolate =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">get_png</span>(<span class="st">'./logoandurl.png'</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> grid<span class="sc">::</span><span class="fu">roundrectGrob</span>()</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (pref_name <span class="cf">in</span> pref_list) {</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(pref_name)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    merge_data2 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(merge_data, 都道府県名<span class="sc">==</span>pref_name)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    title <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">'市町村別高齢者人口割合 (%s, 2020年)'</span>, pref_name)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    koureikamap <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(merge_data2) <span class="sc">+</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> 人口65歳以上割合),<span class="at">linewidth=</span><span class="fl">0.1</span>, <span class="at">color=</span><span class="st">'#303030'</span>) <span class="sc">+</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_gradient2</span>(<span class="at">low=</span><span class="st">'blue'</span>, <span class="at">mid=</span><span class="st">'yellow'</span>, <span class="at">high=</span><span class="st">'red'</span>, <span class="at">name=</span><span class="st">'(%)'</span>, <span class="at">midpoint=</span><span class="dv">40</span>, <span class="at">limits=</span><span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">65</span>)) <span class="sc">+</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ggtitle</span>(title) <span class="sc">+</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme</span>(</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>              <span class="do">## テキストの設定</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>              <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"sans"</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color=</span><span class="st">"black"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face=</span><span class="st">"bold"</span>),</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.key.height=</span><span class="fu">unit</span>(<span class="fl">0.5</span>,<span class="st">'cm'</span>),</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.key.width=</span> <span class="fu">unit</span>(<span class="fl">0.1</span>, <span class="st">'cm'</span>),</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family=</span><span class="st">"sans"</span>,<span class="at">size=</span><span class="dv">7</span>,<span class="at">color=</span><span class="st">"black"</span>,<span class="at">face=</span><span class="st">"bold"</span>),</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family=</span><span class="st">"sans"</span>,<span class="at">size=</span><span class="dv">7</span>,<span class="at">color=</span><span class="st">"black"</span>,<span class="at">face=</span><span class="st">"bold"</span>),</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>              <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>              <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>              <span class="at">plot.margin =</span> <span class="fu">unit</span>(<span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">0.5</span>), <span class="st">"lines"</span>),</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>              <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#f0f7ff"</span>,<span class="at">color =</span> <span class="cn">NA</span>)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (pref_name<span class="sc">==</span><span class="st">'東京都'</span>) {</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>            koureikamap <span class="ot">&lt;-</span> koureikamap <span class="sc">+</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>                <span class="fu">scale_x_continuous</span>(<span class="at">limits=</span><span class="fu">c</span>(<span class="fl">138.9</span>, <span class="dv">140</span>), <span class="at">expand=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">breaks=</span><span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">120</span>,<span class="dv">150</span>,<span class="dv">5</span>))) <span class="sc">+</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>                <span class="fu">scale_y_continuous</span>(<span class="at">limits=</span><span class="fu">c</span>(<span class="fl">35.4</span>, <span class="dv">36</span>), <span class="at">expand=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">breaks=</span><span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">30</span>,<span class="dv">50</span>,<span class="dv">5</span>)))</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggsave</span>(<span class="at">file =</span> <span class="fu">sprintf</span>(<span class="st">"./png/koureika_%s.png"</span>,pref_name), <span class="at">plot=</span>koureikamap, <span class="at">dpi =</span> <span class="dv">150</span>, <span class="at">width =</span> <span class="fl">3.5</span>, <span class="at">height =</span> <span class="fl">3.5</span>)</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
+</div>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> トップに戻る</a></main> <!-- /main -->

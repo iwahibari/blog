@@ -25,19 +25,12 @@
     "listing": "/contents/list_society.html",
     "items": [
       "/contents/society/r7halloween/r7halloween.html",
-      "/contents/society/toilet/toilet.html",
       "/contents/society/koureika/koureika.html",
       "/contents/society/population_japan/population_japan.html"
     ]
   },
   {
     "listing": "/index.html",
-    "items": [
-      "/contents/memo/atom_selection/atom_selection.html",
-      "/contents/memo/barplot/barplot.html",
-      "/contents/memo/background/backgroud.html",
-      "/contents/memo/theme_costom/theme_costom.html",
-      "/contents/memo/chemdraw_install/chemdraw_install.html"
-    ]
+    "items": []
   }
 ]

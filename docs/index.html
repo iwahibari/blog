@@ -25,14 +25,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="././fig/favicon.jpg" rel="icon" type="image/jpeg">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -46,9 +45,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b5fd400f383db1b366f959d98f0a047c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-75361c5ccdf8e4eecff5df40a763e582.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-7075402092f3cf786f65d3ea315375df.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-b5fd400f383db1b366f959d98f0a047c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-75361c5ccdf8e4eecff5df40a763e582.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,35 +75,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "サーチ"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-note_articles .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-note_articles'] = new List('listing-note_articles', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
 <script type="text/javascript" charset="UTF-8">
 document.addEventListener('DOMContentLoaded', function () {
@@ -133,49 +103,21 @@ cookieconsent.run({
   gtag('config', 'G-DHR9GBWS5V');
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
+<link rel="stylesheet" href="style/index.css">
 <meta property="og:title" content="ホーム">
 <meta property="og:description" content="作成したグラフを生成スクリプトとともにフリーで公開しています。">
-<meta property="og:image" content="https://cacical.jp/fig/r7halloween_catch.png">
+<meta property="og:image" content="https://cacical.jp/fig/6bs1_acpdt.png">
 <meta property="og:site_name" content="Cacical 「カシカル」">
-<meta property="og:image:alt" content="「地図でみる」ハロウィーンイベント2025">
-<meta property="og:image:height" content="1948">
-<meta property="og:image:width" content="1948">
+<meta property="og:image:alt" content="...">
+<meta property="og:image:height" content="851">
+<meta property="og:image:width" content="961">
 <meta name="twitter:title" content="ホーム">
 <meta name="twitter:description" content="作成したグラフを生成スクリプトとともにフリーで公開しています。">
-<meta name="twitter:image" content="https://cacical.jp/fig/r7halloween_catch.png">
-<meta name="twitter:image:alt" content="「地図でみる」ハロウィーンイベント2025">
-<meta name="twitter:image-height" content="1948">
-<meta name="twitter:image-width" content="1948">
+<meta name="twitter:image" content="https://cacical.jp/fig/6bs1_acpdt.png">
+<meta name="twitter:image:alt" content="...">
+<meta name="twitter:image-height" content="851">
+<meta name="twitter:image-width" content="961">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -391,13 +333,12 @@ window.Quarto = {
 </div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">分類</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">すべて <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Y2hlbWRyYXc=">chemdraw <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y3BwdHJhag==">cpptraj <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2dwbG90Mg==">ggplot2 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy">備忘録 <span class="quarto-category-count">(5)</span></div></div></div>
+    
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
@@ -502,184 +443,79 @@ window.Quarto = {
     </div>
 </div>
 
-<div class="no-row-height column-margin column-container"><div class="">
-<p><a href="./contents/society/r7halloween/r7halloween.html"><img src="./fig/r7halloween_catch.png" class="img-fluid" alt="「地図でみる」ハロウィーンイベント2025"></a></p>
-</div></div><h4 id="最近の更新" class="anchored">最近の更新</h4>
-<div id="listing-note_articles" class="quarto-listing quarto-listing-container-default">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-note_articles-sort" class="form-select" aria-label="並び替え" onchange="window['quarto-listings']['listing-note_articles'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">並び替え</option>
-      <option value="index" data-direction="asc">デフォルト</option>
-      <option value="listing-date-sort" data-direction="asc">
-        日付 - 日付（昇順）
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        日付 - 日付（降順）
-      </option>
-    </select>
+<style>
+    .carousel {
+        background-color: #8491c328;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .carousel-img {
+        height: 400px;
+        object-fit: contain;*/
+    }
+</style>
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="./fig/6bs1_acpdt.png" class="d-block w-100 carousel-img" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="./fig/koureika_愛知県.png" class="d-block w-100 carousel-img" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <img src="./fig/temp_lineplot_en.png" class="d-block w-100 carousel-img" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-left" data-index="0" data-categories="Y3BwdHJhaiUyQyVFNSU4MiU5OSVFNSVCRiU5OCVFOSU4QyVCMg==" data-listing-date-sort="1756047600000" data-listing-file-modified-sort="1756290693654" data-listing-date-modified-sort="1756306800000" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
-<div class="thumbnail"><a href="./contents/memo/atom_selection/atom_selection.html" class="no-external">
-
-<p class="card-img-top"><img src="contents/memo/atom_selection/fig/all.png" alt="すべての原子が選択された状態"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./contents/memo/atom_selection/atom_selection.html" class="no-external"><span class="monofont">AMBER</span>の原子選択（アトムマスク）を完全に理解する</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y3BwdHJhag=='); return false;">cpptraj</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy'); return false;">備忘録</div>
-
+<section id="グラフの種類から探す" class="level3 content-container">
+<h3 class="anchored" data-anchor-id="グラフの種類から探す">グラフの種類から探す</h3>
+<div class="quarto-layout-panel" data-layout-ncol="4">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="./fig/line.png" class="img-fluid"></p>
 </div>
-<div class="delink listing-description"><a href="./contents/memo/atom_selection/atom_selection.html" class="no-external">
-<p>AMBERのアトムマスク選択構文を理解し、思い通りに使えるようにします。cpptrajやpytrajも同様の方法を使います。</p>
-</a></div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="./fig/bar.png" class="img-fluid"></p>
 </div>
-<div class="metadata">
-<a href="./contents/memo/atom_selection/atom_selection.html" class="no-external">
-<div class="listing-date">
-2025/08/25
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="./fig/heat.png" class="img-fluid"></p>
 </div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="1" data-categories="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIyJTJDUiUyQ2dncGxvdDI=" data-listing-date-sort="1754578800000" data-listing-file-modified-sort="1756479133926" data-listing-date-modified-sort="1754751600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="560">
-<div class="thumbnail"><a href="./contents/memo/barplot/barplot.html" class="no-external">
-
-<p class="card-img-top"><img src="contents/memo/barplot/bar_plot.png" alt="本チュートリアルでの完成予想グラフ"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./contents/memo/barplot/barplot.html" class="no-external"><span class="monofont">ggplot2</span>を用いた棒グラフの作成</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy'); return false;">備忘録</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
-
-</div>
-<div class="delink listing-description"><a href="./contents/memo/barplot/barplot.html" class="no-external">
-<p>ggplot2を用いて、ゼロからエラーバーや有意差の有無を表示した棒グラフを作成します。検定やデータの整形も同時に行います。</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./contents/memo/barplot/barplot.html" class="no-external">
-<div class="listing-date">
-2025/08/08
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="2" data-categories="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIyJTJDUiUyQ2dncGxvdDI=" data-listing-date-sort="1754924400000" data-listing-file-modified-sort="1756463975755" data-listing-date-modified-sort="1754924400000" data-listing-reading-time-sort="1" data-listing-word-count-sort="167">
-<div class="thumbnail"><a href="./contents/memo/background/backgroud.html" class="no-external">
-
-<p class="card-img-top"><img src="contents/memo/background/backgroud_files/figure-html/unnamed-chunk-3-1.png" alt="背景が透過していないggplotで作成したグラフ"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./contents/memo/background/backgroud.html" class="no-external"><span class="monofont">ggplot2</span>グラフの背景透過</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy'); return false;">備忘録</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
-
-</div>
-<div class="delink listing-description"><a href="./contents/memo/background/backgroud.html" class="no-external">
-<p>ggplot2で作成したグラフの背景を、<code>theme</code>をいじることで透過させます。</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./contents/memo/background/backgroud.html" class="no-external">
-<div class="listing-date">
-2025/08/12
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="3" data-categories="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIyJTJDUiUyQ2dncGxvdDI=" data-listing-date-sort="1754751600000" data-listing-file-modified-sort="1756086051019" data-listing-date-modified-sort="1754751600000" data-listing-reading-time-sort="4" data-listing-word-count-sort="743">
-<div class="thumbnail"><a href="./contents/memo/theme_costom/theme_costom.html" class="no-external">
-
-<p class="card-img-top"><img src="contents/memo/theme_costom/theme_costom_files/figure-html/unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./contents/memo/theme_costom/theme_costom.html" class="no-external"><span class="monofont">ggplot2</span>テーマの自作</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy'); return false;">備忘録</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
-
-</div>
-<div class="delink listing-description"><a href="./contents/memo/theme_costom/theme_costom.html" class="no-external">
-<p>ggplot2で作成するグラフのテーマを自作する。（執筆途中）</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./contents/memo/theme_costom/theme_costom.html" class="no-external">
-<div class="listing-date">
-2025/08/10
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-left" data-index="4" data-categories="JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIyJTJDY2hlbWRyYXc=" data-listing-date-sort="1755961200000" data-listing-file-modified-sort="1756489169456" data-listing-date-modified-sort="1755961200000" data-listing-reading-time-sort="1" data-listing-word-count-sort="39">
-<div class="thumbnail"><a href="./contents/memo/chemdraw_install/chemdraw_install.html" class="no-external">
-
-<p class="card-img-top"><img src="contents/memo/chemdraw_install/fig/chemdraw_registration.png" alt="ユーザー登録画面"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./contents/memo/chemdraw_install/chemdraw_install.html" class="no-external">機関契約<span class="monofont">chemdraw</span>のインストール・アクティベーションの方法</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('JUU1JTgyJTk5JUU1JUJGJTk4JUU5JThDJUIy'); return false;">備忘録</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y2hlbWRyYXc='); return false;">chemdraw</div>
-
-</div>
-<div class="delink listing-description"><a href="./contents/memo/chemdraw_install/chemdraw_install.html" class="no-external">
-<p>大学や機関が契約したchemdrawを自PCにインストールし、アクティベーションする。</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./contents/memo/chemdraw_install/chemdraw_install.html" class="no-external">
-<div class="listing-date">
-2025/08/24
-</div>
-</a>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="./fig/map.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">一致なし</div>
-</div>
-<center>
-    <a class="btn btn-outline-primary" href="./contents/list_memo.html">もっと見る</a>
-</center>
+</section>
+<!-- 
+::: {.column-margin}
+[![](./fig/r7halloween_catch.png){fig-alt="「地図でみる」ハロウィーンイベント2025"}](./contents/society/r7halloween/r7halloween.qmd)
+:::
 
+
+::: {.light-content}
+This text will be shown in light mode.
+:::
+
+
+::: {.dark-content}
+This text will be shown in dark mode.
+:::
+
+-->
 
 
 

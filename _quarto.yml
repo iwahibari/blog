@@ -17,7 +17,6 @@ website:
     #logo: './fig/cacical_logo.png'
     #logo-alt: 'logo.'
     title: '[カシカル]{.titlefont}'
-    pinned: true
     collapse-below: lg
     left:
       - text: '**ノート**'

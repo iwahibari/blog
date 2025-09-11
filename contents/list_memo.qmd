@@ -1,14 +1,14 @@
 ---
-title: "note -備忘録-"
-pagetitle: "note -備忘録-"
+title: "note"
+pagetitle: "note"
 description: "グラフ作成やR、ggplot2等に関する備忘録をノートとしてまとめています。"
+hide-description: true
 format: html
 listing:
   type: default
   contents: memo
   sort-ui:
     - "date"
-    - "categories"
   categories: true
   image-align: left
 ---

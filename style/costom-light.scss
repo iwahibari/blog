@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Monomaniac+One&family=Noto+Sans+JP:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 
-$primary: #0c9f62;
+$primary: #8491c3;
 $secondary: #256db0;
 $body-bg: #f7f7f7;
 $body-color: #1a1a1a;
@@ -86,14 +86,41 @@ $monofont:  'Ubuntu Mono', monospace;
   text-transform: none !important;
   border-width: 0px !important;
   border-radius: .7rem !important;
-  opacity: 0.6 !important;
+  opacity: 1 !important;
 }
 
 // リストのタイトルの余白調整
-.listing-title {
-  margin-bottom: 10px !important;
+.quarto-post {
+  padding-top: 15px !important;
+  padding-bottom: 15x !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 0.8rem !important;
+  transition: all 0.2s 0s ease;
+  box-shadow: -1px -1px 2px 0px #f1f1f1, 1px 1px 2px 0px #d8d8d8;
+  //box-shadow: 0px 0px 0px 0px #ffffff00;
 }
 
+.quarto-post:hover {
+  box-shadow: -8px -8px 16px 0px #e8e8e8, 8px 8px 16px 0px #bdbdbd;
+}
+
+.listing-title {
+  margin-bottom: 10px !important;
+  .no-external {
+    font-size: 22px !important;
+    font-weight: bold !important;
+  }
+}
+
+.delink.listing-description {
+  font-size: 14px !important;
+} 
 
 // その他
 .bg-gray-container {
@@ -116,3 +143,5 @@ $monofont:  'Ubuntu Mono', monospace;
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+
