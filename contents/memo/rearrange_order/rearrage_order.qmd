@@ -1,0 +1,18 @@
+---
+title: '【R ggplot2】棒グラフの順番を入れ替える方法'
+pagetitle: '【R ggplot2】棒グラフの順番を入れ替える方法'
+description:  'ggplot2で作成した棒グラフや箱ひげ図の順番を簡単に任意の順番に入れ替える方法を解説します。'
+date: 2025-9-12
+date-modified: 2025-9-12
+categories:
+  - ggplot2
+  - 棒グラフ
+---
+
+### 1. 結論
+並べ替えたい要素を`factor`型にして`level`を指定します。
+```{r}
+#| eval: FALSE
+# dataというデータフレームのtypeの順番を(x,y,z)に指定したいとき、
+data <- transform(data, type=factor(type, levels=c(x,y,z)))
+```

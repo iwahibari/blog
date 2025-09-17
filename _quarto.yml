@@ -7,59 +7,44 @@ project:
 website:
   
   title: "Cacical 「カシカル」"
-  description: '作成したグラフを生成スクリプトとともにフリーで公開しています。'
+  description: '作成したグラフをスクリプトとともにフリーで公開しています。'
   favicon:  './fig/favicon.jpg'
 
   site-url: 'https://cacical.jp'
   site-path: '/'
 
   navbar:
+    pinned: true
     #logo: './fig/cacical_logo.png'
     #logo-alt: 'logo.'
     title: '[カシカル]{.titlefont}'
     collapse-below: lg
     left:
-      - text: '**ノート**'
+      - text: 'ノート'
         href: ./contents/list_memo.qmd
       
-      - text: '**科学・技術**'
+      - text: 'サイエンス'
         href: ./contents/list_science.qmd
 
-      - text: '**社会・経済**'
+      - text: 'ソーシャル'
         href: ./contents/list_society.qmd
 
-      - text: '**地球環境**'
+      - text: 'サステナブル'
         href: ./contents/list_environment.qmd
 
-      - text: '**About**'
+      - text: 'About'
         href: about.qmd
 
     tools:
       - icon: github
         href: https://github.com/iwahibari
 
-
-  announcement: 
-    icon: info-circle
-    dismissable: true
-    content: "**Info**  2025 8/28 AMBERのアトムマスクに関しての記事を公開しました。"
-    type: info
-    position: below-navbar
-
   back-to-top-navigation: true
 
   open-graph: true
   twitter-card: true
-  cookie-consent: true
-  #bread-crumbs: true
-
-  # page-footer: 
-  #   left: "Copyright 2025, iwahibari" 
-  #   right: 
-  #     - icon: github
-  #       href: https://github.com/iwahibari
-  #     - icon: twitter 
-  #       href: https://twitter.com/ 
+  #cookie-consent:
+  #  prefs-text: cookieの設定
 
 
 format:
