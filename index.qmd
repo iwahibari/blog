@@ -9,13 +9,30 @@ css: style/index.css
 
 ```{=html}
 <style>
-.content {
-  padding-top: 0rem !important; 
-}
+  .content {
+    padding-top: 0rem !important; 
+    background: rgba(0, 0, 0, 0); 
+    box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0);
+    border-radius: 0rem;
+  }
+
+  .big-font {
+    font-size: 40px; /* 24ピクセル */
+  }
+
+  .top-block {
+    color: #000000ff;
+    font-size: 20px;
+    /* font-family:'Ubuntu Mono', monospace; */
+  }
 </style>
 ```
 
-「[カシカル]{.titlefont}」では、[R]{.monofont}のグラフ作成パッケージ[ggplot2]{.monofont}で作成したグラフやプログラミングのを掲載しています。
+:::{.top-block}
+[カシカル]{.titlefont .big-font}は\
+[R]{.monofont}のグラフ作成パッケージ[ggplot2]{.monofont}で作成したグラフや、\
+プログラミングに関する備忘録をまとめた個人サイトです。
+:::
 
 ::: {.callout-warning collapse="true"}
 # 使用時の注意事項：クリックして表示
@@ -24,8 +41,8 @@ css: style/index.css
 :::
 
 
-```{=html}
 
+```{=html}
 <style>
     .carousel {
         background-color: #8491c328;
@@ -33,7 +50,7 @@ css: style/index.css
         padding-bottom: 1rem;
     }
     .carousel-img {
-        height: 300px;
+        height: 200px;
         object-fit: contain;*/
     }
 </style>
@@ -66,7 +83,7 @@ css: style/index.css
 </div>
 ```
 
-::: {.content-container}
+<!-- ::: {.content-container}
 
 ### グラフの種類から探す
 
@@ -83,7 +100,7 @@ css: style/index.css
 :::
 :::
 
-### 
+###  -->
 <!-- 
 ::: {.column-margin}
 [![](./fig/r7halloween_catch.png){fig-alt="「地図でみる」ハロウィーンイベント2025"}](./contents/society/r7halloween/r7halloween.qmd)

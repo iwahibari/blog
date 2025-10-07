@@ -54,7 +54,7 @@ format:
     include-in-header: gtm_code_head.html
     theme: 
       light: [default, ./style/costom-light.scss]
-      dark: [default, ./style/costom-dark.scss]
+      #dark: [default, ./style/costom-dark.scss]
     toc: true
     toc-depth: 5
     toc-expand: true
