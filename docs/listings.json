@@ -1,8 +1,11 @@
 [
   {
-    "listing": "/contents/list_science.html",
+    "listing": "/contents/list_society.html",
     "items": [
-      "/contents/science/amino_acid/amino_acid.html"
+      "/contents/society/r7halloween/r7halloween.html",
+      "/contents/society/religion/religion.html",
+      "/contents/society/koureika/koureika.html",
+      "/contents/society/population_japan/population_japan.html"
     ]
   },
   {
@@ -23,11 +26,9 @@
     ]
   },
   {
-    "listing": "/contents/list_society.html",
+    "listing": "/contents/list_science.html",
     "items": [
-      "/contents/society/r7halloween/r7halloween.html",
-      "/contents/society/koureika/koureika.html",
-      "/contents/society/population_japan/population_japan.html"
+      "/contents/science/amino_acid/amino_acid.html"
     ]
   }
 ]

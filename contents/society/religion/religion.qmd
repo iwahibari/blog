@@ -1,0 +1,227 @@
+---
+title: '宗教信者数ランキング'
+pagetitle: '日本の宗教信者数ランキング（ヒートマップ）'
+description:  '日本での宗教ごとの信者数をヒートマップ（ツリーマップ）という可視化手法を用いて図示しました。'
+date: 2025-10-10
+date-modified: 2025-10-10
+categories:
+  - society
+  - ツリーマップ
+  - ヒートマップ
+---
+
+### グラフ
+
+::: {.bg-gray-container}
+::: {.content-container}
+
+![](./religion_treemap.png){fig-alt="日本の宗教信者数"}
+
+宗教系列別ツリーマップ
+
+::: {layout-ncol="2"}
+
+![](./religion_treemap_shinto.png){fig-alt="日本の宗教信者数（神道）"}
+
+![](./religion_treemap_bukkyo.png){fig-alt="日本の宗教信者数（仏教）"}
+
+![](./religion_treemap_kirisuto.png){fig-alt="日本の宗教信者数（キリスト教）"}
+
+![](./religion_treemap_shokyo.png){fig-alt="日本の宗教信者数（諸教）"}
+
+:::
+
+|        |        |
+| ------ | ------ |
+| **作成日** | 2025-08-30 |
+| **データ取得日** | 2025-08-30 |
+| **データ元** | [e-GOVデータポータル｜包括宗教団体別被包括宗教団体・教師・信者数](https://data.e-gov.go.jp/data/ja/dataset/mext_syuumu_2024/resource/fb84c7ba-41dc-43a5-9a27-ac1230370acb) |
+| **使用したパッケージ** | `R`, `ggplot2`, `treemapify`|
+
+<a href="./religion_treemap.png" download="religion_treemap.png" class="btn btn-outline-primary">PNGダウンロード（全宗教）</a>
+<a href="./religion_treemap_shinkyo.png" download="religion_treemap_shinkyo.png" class="btn btn-outline-primary">PNGダウンロード（神教）</a>
+<a href="./religion_treemap_bukkyo.png" download="religion_treemap_bukkyo.png" class="btn btn-outline-primary">PNGダウンロード（仏教）</a>
+<a href="./religion_treemap_kirisuto.png" download="religion_treemap_kirisuto.png" class="btn btn-outline-primary">PNGダウンロード（キリスト教）</a>
+<a href="./religion_treemap_shokyo.png" download="religion_treemap_shokyo.png" class="btn btn-outline-primary">PNGダウンロード（諸教）</a>
+:::
+:::
+
+### データ
+```{R}
+#| label: religion_all_data
+#| cache: true
+
+data <- read.csv("./religion_data.csv")
+head(data)
+```
+<a href="./religion_data.csv" download="religion_data.csv" class="btn btn-outline-primary">データCSVをダウンロード（編集済）</a>
+
+### 作成スクリプト
+
+::: panel-tabset
+
+### 全宗教ツリーマップ
+```{R}
+#| label: treemap_religion
+#| cache: true
+#| output: false
+
+library(tidyverse)
+library(treemapify)
+library(extrafont)
+
+data <- read.csv("./religion_data.csv")
+
+bgcolor <- "gray20"
+
+plot <- ggplot(data, aes(area=population, fill=group, label=name, subgroup=group, subgroup2=subgroup),color=black) + 
+  geom_treemap(start = "bottomleft", colour=bgcolor, size=2)+
+  geom_treemap_subgroup_border(colour = bgcolor, size = 10) +
+  geom_treemap_subgroup_text(place = "center", grow = TRUE, alpha = 0.2, colour = "black", family = "Noto Sans JP", padding.x = grid::unit(5, "mm"), padding.y = grid::unit(5, "mm")) +
+  geom_treemap_subgroup2_border(colour = bgcolor, size = 5) +
+  geom_treemap_text(place="center", color="white", grow=TRUE, family = "Yu Mincho", padding.x = grid::unit(5, "mm"), padding.y = grid::unit(5, "mm")) +
+  scale_fill_manual(values=c("#006e54", "#8d6449", "#ce5242", "#65318e")) +
+  labs(title = '日本の宗教別信者数') +
+  theme(
+    text = element_text(family = "Noto Sans JP"),
+    plot.title = element_text(size= 60, color="white",hjust=.5, vjust=.5),
+    legend.position = "none",
+    panel.background = element_rect(fill = bgcolor),
+    plot.background = element_rect(fill = bgcolor)
+  )
+
+ggsave("religion_treemap.png", plot=last_plot(), height=30, width=40)
+```
+
+### 神道
+```{R}
+#| label: treemap_shinto
+#| cache: true
+#| output: false
+
+library(tidyverse)
+library(treemapify)
+library(extrafont)
+
+data <- read.csv("./religion_data.csv") %>%
+  filter(group=="神道")
+
+bgcolor <- "gray20"
+
+plot <- ggplot(data, aes(area=population, fill=subgroup, label=name, subgroup=subgroup),color=black) + 
+  geom_treemap(start = "bottomleft", colour=bgcolor, size=2)+
+  geom_treemap_subgroup_border(colour = bgcolor, size = 10) +
+  geom_treemap_subgroup_text(place = "center", grow = TRUE, alpha = 0.2, colour = "black", family = "Noto Sans JP", padding.x = grid::unit(5, "mm"), padding.y = grid::unit(5, "mm")) +
+  geom_treemap_text(place="center", color="white", grow=TRUE, family = "Yu Mincho", padding.x = grid::unit(5, "mm"), padding.y = grid::unit(5, "mm")) +
+  scale_fill_manual(values=c("#ce7a42ff", "#ce9d42ff", "#ce5242")) +
+  labs(title = '日本の宗教別信者数（神道）') +
+  theme(
+    text = element_text(family = "Noto Sans JP"),
+    plot.title = element_text(size= 60, color="white",hjust=.5, vjust=.5),
+    legend.position = "none",
+    panel.background = element_rect(fill = bgcolor),
+    plot.background = element_rect(fill = bgcolor)
+  )
+
+ggsave("religion_treemap_shinto.png", plot=last_plot(), height=30, width=40)
+```
+
+### 仏教
+```{R}
+#| label: treemap_bukkyo
+#| cache: true
+#| output: false
+
+library(tidyverse)
+library(treemapify)
+library(extrafont)
+
+data <- read.csv("./religion_data.csv") %>%
+  filter(group=="仏教")
+
+bgcolor <- "gray20"
+
+plot <- ggplot(data, aes(area=population, fill=subgroup, label=name, subgroup=subgroup),color=black) + 
+  geom_treemap(start = "bottomleft", colour=bgcolor, size=2)+
+  geom_treemap_subgroup_border(colour = bgcolor, size = 10) +
+  geom_treemap_subgroup_text(place = "center", grow = TRUE, alpha = 0.2, colour = "black", family = "Noto Sans JP", padding.x = grid::unit(5, "mm"), padding.y = grid::unit(5, "mm")) +
+  geom_treemap_text(place="center", color="white", grow=TRUE, family = "Yu Mincho", padding.x = grid::unit(5, "mm"), padding.y = grid::unit(5, "mm")) +
+  scale_fill_manual(values=c("#320852ff", "#65318e", "#78318eff", "#3f318eff", "#8e3164ff", "#313f8eff", "#8e3164ff")) +
+  labs(title = '日本の宗教別信者数（仏教）') +
+  theme(
+    text = element_text(family = "Noto Sans JP"),
+    plot.title = element_text(size= 60, color="white",hjust=.5, vjust=.5),
+    legend.position = "none",
+    panel.background = element_rect(fill = bgcolor),
+    plot.background = element_rect(fill = bgcolor)
+  )
+
+ggsave("religion_treemap_bukkyo.png", plot=last_plot(), height=30, width=40)
+```
+
+### キリスト教
+```{R}
+#| label: treemap_kirisuto
+#| cache: true
+#| output: false
+
+library(tidyverse)
+library(treemapify)
+library(extrafont)
+
+data <- read.csv("./religion_data.csv") %>%
+  filter(group=="キリスト教")
+
+bgcolor <- "gray20"
+
+plot <- ggplot(data, aes(area=population, fill=subgroup, label=name, subgroup=subgroup),color=black) + 
+  geom_treemap(start = "bottomleft", colour=bgcolor, size=2)+
+  geom_treemap_subgroup_border(colour = bgcolor, size = 10) +
+  geom_treemap_subgroup_text(place = "center", grow = TRUE, alpha = 0.2, colour = "black", family = "Noto Sans JP", padding.x = grid::unit(5, "mm"), padding.y = grid::unit(5, "mm")) +
+  geom_treemap_text(place="center", color="white", grow=TRUE, family = "Yu Mincho", padding.x = grid::unit(5, "mm"), padding.y = grid::unit(5, "mm")) +
+  scale_fill_manual(values=c("#006e54", "#005d6eff")) +
+  labs(title = '日本の宗教別信者数（キリスト教）') +
+  theme(
+    text = element_text(family = "Noto Sans JP"),
+    plot.title = element_text(size= 60, color="white",hjust=.5, vjust=.5),
+    legend.position = "none",
+    panel.background = element_rect(fill = bgcolor),
+    plot.background = element_rect(fill = bgcolor)
+  )
+
+ggsave("religion_treemap_kirisuto.png", plot=last_plot(), height=30, width=40)
+```
+
+### 諸教
+```{R}
+#| label: treemap_shokyo
+#| cache: true
+#| output: false
+
+library(tidyverse)
+library(treemapify)
+library(extrafont)
+
+data <- read.csv("./religion_data.csv") %>%
+  filter(group=="諸教")
+
+bgcolor <- "gray20"
+
+plot <- ggplot(data, aes(area=population, fill=group, label=name, ,subgroup=subgroup, subgroup2=name),color=black) + 
+  geom_treemap(start = "bottomleft", colour=bgcolor, size=2)+
+  geom_treemap_subgroup2_border(colour = bgcolor, size = 10) +
+  geom_treemap_subgroup_text(place = "center", grow = TRUE, alpha = 0.2, colour = "black", family = "Noto Sans JP", padding.x = grid::unit(5, "mm"), padding.y = grid::unit(5, "mm")) +
+  geom_treemap_text(place="center", color="white", grow=TRUE, family = "Yu Mincho", padding.x = grid::unit(5, "mm"), padding.y = grid::unit(5, "mm")) +
+  scale_fill_manual(values=c("#8d6449")) +
+  labs(title = '日本の宗教別信者数（諸教）') +
+  theme(
+    text = element_text(family = "Noto Sans JP"),
+    plot.title = element_text(size= 60, color="white",hjust=.5, vjust=.5),
+    legend.position = "none",
+    panel.background = element_rect(fill = bgcolor),
+    plot.background = element_rect(fill = bgcolor)
+  )
+
+ggsave("religion_treemap_shokyo.png", plot=last_plot(), height=30, width=40)
+```
+:::

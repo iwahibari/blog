@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -82,21 +117,21 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="style/index.css">
 <meta property="og:title" content="ホーム">
 <meta property="og:description" content="作成したグラフを生成スクリプトとともにフリーで公開しています。">
-<meta property="og:image" content="https://cacical.jp/fig/6bs1_acpdt.png">
+<meta property="og:image" content="https://cacical.jp/fig/religion_treemap.png">
 <meta property="og:site_name" content="Cacical 「カシカル」">
-<meta property="og:image:alt" content="...">
-<meta property="og:image:height" content="851">
-<meta property="og:image:width" content="961">
+<meta property="og:image:alt" content="日本の宗教信者数（全部）">
+<meta property="og:image:height" content="6000">
+<meta property="og:image:width" content="12000">
 <meta name="twitter:title" content="ホーム">
 <meta name="twitter:description" content="作成したグラフを生成スクリプトとともにフリーで公開しています。">
-<meta name="twitter:image" content="https://cacical.jp/fig/6bs1_acpdt.png">
-<meta name="twitter:image:alt" content="...">
-<meta name="twitter:image-height" content="851">
-<meta name="twitter:image-width" content="961">
+<meta name="twitter:image" content="https://cacical.jp/fig/religion_treemap.png">
+<meta name="twitter:image:alt" content="日本の宗教信者数（全部）">
+<meta name="twitter:image-height" content="6000">
+<meta name="twitter:image-width" content="12000">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -142,12 +177,12 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
@@ -169,6 +204,18 @@ ul.task-list li input[type="checkbox"] {
     font-size: 20px;
     /* font-family:'Ubuntu Mono', monospace; */
   }
+
+
+  .graph_of_month {
+  background-color: rgb(137, 158, 148, .1); 
+  padding-top: 0rem; 
+  padding-bottom: .5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: .5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
 <div class="top-block">
 <p><span class="titlefont big-font">カシカル</span>は<br>
@@ -181,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-使用時の注意事項：クリックして表示
+おしらせ：クリックして表示
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -194,6 +241,61 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<div class="graph_of_month">
+<p><span class="titlefont big-font">Picup</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">今月のグラフ</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">作成スクリプト</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><img src="./fig/religion_treemap.png" class="img-fluid" alt="日本の宗教信者数（全部）"></p>
+<div class="quarto-layout-panel" data-layout-ncol="4">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="./contents/society/religion/religion_treemap_shinto.png" class="img-fluid" alt="日本の宗教信者数（神道）"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="./contents/society/religion/religion_treemap_bukkyo.png" class="img-fluid" alt="日本の宗教信者数（仏教）"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="./contents/society/religion/religion_treemap_kirisuto.png" class="img-fluid" alt="日本の宗教信者数（キリスト教）"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="./contents/society/religion/religion_treemap_shokyo.png" class="img-fluid" alt="日本の宗教信者数（諸教）"></p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(treemapify)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(extrafont)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./religion_data.csv"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>bgcolor <span class="ot">&lt;-</span> <span class="st">"gray20"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">area=</span>population, <span class="at">fill=</span>group, <span class="at">label=</span>name, <span class="at">subgroup=</span>group, <span class="at">subgroup2=</span>subgroup),<span class="at">color=</span>black) <span class="sc">+</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap</span>(<span class="at">start =</span> <span class="st">"bottomleft"</span>, <span class="at">colour=</span>bgcolor, <span class="at">size=</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap_subgroup_border</span>(<span class="at">colour =</span> bgcolor, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap_subgroup_text</span>(<span class="at">place =</span> <span class="st">"center"</span>, <span class="at">grow =</span> <span class="cn">TRUE</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">family =</span> <span class="st">"Noto Sans JP"</span>, <span class="at">padding.x =</span> grid<span class="sc">::</span><span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">"mm"</span>), <span class="at">padding.y =</span> grid<span class="sc">::</span><span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">"mm"</span>)) <span class="sc">+</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap_subgroup2_border</span>(<span class="at">colour =</span> bgcolor, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap_text</span>(<span class="at">place=</span><span class="st">"center"</span>, <span class="at">color=</span><span class="st">"white"</span>, <span class="at">grow=</span><span class="cn">TRUE</span>, <span class="at">family =</span> <span class="st">"Yu Mincho"</span>, <span class="at">padding.x =</span> grid<span class="sc">::</span><span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">"mm"</span>), <span class="at">padding.y =</span> grid<span class="sc">::</span><span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">"mm"</span>)) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"#006e54"</span>, <span class="st">"#8d6449"</span>, <span class="st">"#ce5242"</span>, <span class="st">"#65318e"</span>)) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'日本の宗教別信者数'</span>) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Noto Sans JP"</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">60</span>, <span class="at">color=</span><span class="st">"white"</span>,<span class="at">hjust=</span>.<span class="dv">5</span>, <span class="at">vjust=</span>.<span class="dv">5</span>),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> bgcolor),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> bgcolor)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="コピー" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p><a href="./contents/society/religion/religion.html" class="btn btn-outline-primary">記事はこちら</a></p>
+</div>
+<!-- ```{=html}
 <style>
     .carousel {
         background-color: #8491c328;
@@ -232,6 +334,7 @@ ul.task-list li input[type="checkbox"] {
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+``` -->
 <!-- ::: {.content-container}
 
 ### グラフの種類から探す

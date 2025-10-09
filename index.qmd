@@ -2,7 +2,7 @@
 pagetitle: "ホーム"
 description: '作成したグラフを生成スクリプトとともにフリーで公開しています。'
 hide-description: true
-#page-layout: custom
+page-layout: full
 toc: false
 css: style/index.css
 ---
@@ -25,6 +25,18 @@ css: style/index.css
     font-size: 20px;
     /* font-family:'Ubuntu Mono', monospace; */
   }
+
+
+  .graph_of_month {
+  background-color: rgb(137, 158, 148, .1); 
+  padding-top: 0rem; 
+  padding-bottom: .5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: .5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
 ```
 
@@ -35,14 +47,64 @@ css: style/index.css
 :::
 
 ::: {.callout-warning collapse="true"}
-# 使用時の注意事項：クリックして表示
+# おしらせ：クリックして表示
 - 完全フリーですが、一部使用用途を制限しているコンテンツがあります。（その場合はページに記載しています。）
 - 掲載している内容（グラフ・スクリプト・文章）は十分に気を付けていますが、間違いを含んでいる可能性があります。何かに使う時は、各ページに書いてある出典元を確認してください。
 :::
 
+::: {.graph_of_month}
 
+[Picup]{.titlefont .big-font}
 
-```{=html}
+::: panel-tabset
+
+# 今月のグラフ
+![](./fig/religion_treemap.png){fig-alt="日本の宗教信者数（全部）"}
+
+::: {layout-ncol="4"}
+
+![](./contents/society/religion/religion_treemap_shinto.png){fig-alt="日本の宗教信者数（神道）"}
+
+![](./contents/society/religion/religion_treemap_bukkyo.png){fig-alt="日本の宗教信者数（仏教）"}
+
+![](./contents/society/religion/religion_treemap_kirisuto.png){fig-alt="日本の宗教信者数（キリスト教）"}
+
+![](./contents/society/religion/religion_treemap_shokyo.png){fig-alt="日本の宗教信者数（諸教）"}
+
+:::
+
+# 作成スクリプト
+```{R}
+#| eval: FALSE
+library(tidyverse)
+library(treemapify)
+library(extrafont)
+
+data <- read.csv("./religion_data.csv")
+bgcolor <- "gray20"
+
+plot <- ggplot(data, aes(area=population, fill=group, label=name, subgroup=group, subgroup2=subgroup),color=black) + 
+  geom_treemap(start = "bottomleft", colour=bgcolor, size=2)+
+  geom_treemap_subgroup_border(colour = bgcolor, size = 10) +
+  geom_treemap_subgroup_text(place = "center", grow = TRUE, alpha = 0.2, colour = "black", family = "Noto Sans JP", padding.x = grid::unit(5, "mm"), padding.y = grid::unit(5, "mm")) +
+  geom_treemap_subgroup2_border(colour = bgcolor, size = 5) +
+  geom_treemap_text(place="center", color="white", grow=TRUE, family = "Yu Mincho", padding.x = grid::unit(5, "mm"), padding.y = grid::unit(5, "mm")) +
+  scale_fill_manual(values=c("#006e54", "#8d6449", "#ce5242", "#65318e")) +
+  labs(title = '日本の宗教別信者数') +
+  theme(
+    text = element_text(family = "Noto Sans JP"),
+    plot.title = element_text(size= 60, color="white",hjust=.5, vjust=.5),
+    legend.position = "none",
+    panel.background = element_rect(fill = bgcolor),
+    plot.background = element_rect(fill = bgcolor)
+  )
+```
+:::
+
+<a href="./contents/society/religion/religion.qmd" class="btn btn-outline-primary">記事はこちら</a>
+
+:::
+<!-- ```{=html}
 <style>
     .carousel {
         background-color: #8491c328;
@@ -81,7 +143,7 @@ css: style/index.css
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-```
+``` -->
 
 <!-- ::: {.content-container}
 
